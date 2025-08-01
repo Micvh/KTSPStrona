@@ -119,38 +119,64 @@ export default function KTSPHome() {
 
   return (
     <div className="w-screen min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
-      {/* Header */}
-      <div className="w-full bg-white/80 backdrop-blur-md border-b border-slate-200/50 sticky top-0 z-50">
-        <div className="w-full px-4 md:px-32 lg:px-60 xl:px-80 py-6">
-          <div className="flex justify-between items-center relative">
-            <div className="flex gap-8 text-base font-medium text-slate-700">
-              <Link to="/main" className="text-blue-600 relative group">
-                MAIN
-                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600"></span>
-              </Link>
-              <Link to="/oferty" className="hover:text-blue-600 transition-colors duration-300 relative group">
-                OFERTY
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link to="/o-nas" className="hover:text-blue-600 transition-colors duration-300 relative group">
-                O NAS
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-              <Link to="/kontakt" className="hover:text-blue-600 transition-colors duration-300 relative group">
-                KONTAKT
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-              </Link>
-            </div>
-                         <Link to="/main" className="absolute left-1/2 transform -translate-x-1/2 text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 cursor-pointer">
+             {/* Header */}
+       <div className="w-full bg-white/80 backdrop-blur-md border-b border-slate-200/50 sticky top-0 z-50">
+                                                                                                                                                               <div className="w-full px-4 md:px-6 lg:px-8 xl:px-32 2xl:px-48 py-4 md:py-5 lg:py-6 xl:py-8">
+           {/* Mobile Layout */}
+           <div className="md:hidden flex flex-col items-center space-y-4">
+             <Link to="/main" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 cursor-pointer">
                KTSP
              </Link>
-            <div className="w-24" />
-          </div>
-        </div>
-      </div>
+             <div className="flex gap-4 text-sm font-medium text-slate-700">
+               <Link to="/main" className="text-blue-600 relative group">
+                 MAIN
+                 <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600"></span>
+               </Link>
+               <Link to="/oferty" className="hover:text-blue-600 transition-colors duration-300 relative group">
+                 OFERTY
+                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+               </Link>
+               <Link to="/o-nas" className="hover:text-blue-600 transition-colors duration-300 relative group">
+                 O NAS
+                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+               </Link>
+               <Link to="/kontakt" className="hover:text-blue-600 transition-colors duration-300 relative group">
+                 KONTAKT
+                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+               </Link>
+             </div>
+           </div>
+           
+           {/* Desktop Layout */}
+           <div className="hidden md:flex justify-between items-center relative">
+             <div className="flex gap-8 text-base font-medium text-slate-700">
+               <Link to="/main" className="text-blue-600 relative group">
+                 MAIN
+                 <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600"></span>
+               </Link>
+               <Link to="/oferty" className="hover:text-blue-600 transition-colors duration-300 relative group">
+                 OFERTY
+                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+               </Link>
+               <Link to="/o-nas" className="hover:text-blue-600 transition-colors duration-300 relative group">
+                 O NAS
+                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+               </Link>
+               <Link to="/kontakt" className="hover:text-blue-600 transition-colors duration-300 relative group">
+                 KONTAKT
+                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+               </Link>
+             </div>
+             <Link to="/main" className="absolute left-1/2 transform -translate-x-1/2 text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 cursor-pointer">
+               KTSP
+             </Link>
+             <div className="w-24" />
+           </div>
+         </div>
+       </div>
 
-      {/* Hero Section */}
-      <div className="w-full px-4 md:px-32 lg:px-60 xl:px-80 py-12 min-h-screen flex flex-col justify-center">
+             {/* Hero Section */}
+                                                                                                                               <div className="w-full px-4 md:px-6 lg:px-8 xl:px-32 2xl:px-48 py-8 md:py-10 lg:py-12 xl:py-16 min-h-screen flex flex-col justify-center">
         <div className="text-center mb-24">
           <h1 className="text-6xl font-bold text-slate-800 mb-6">
             Witamy w
@@ -168,8 +194,8 @@ export default function KTSPHome() {
           </Link>
         </div>
 
-        {/* Stats Section */}
-        <div ref={statsRef} className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+                 {/* Stats Section */}
+         <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-12">
           <div className="text-center">
             <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300">
               {animatedValues.clients}+
@@ -196,8 +222,8 @@ export default function KTSPHome() {
           </div>
         </div>
 
-        {/* Features Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 mt-12">
+                 {/* Features Grid */}
+         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12 mt-8 md:mt-12">
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
             <div className=" text-center text-4xl mb-4">🏠</div>
             <h3 className="text-xl font-semibold text-slate-800 mb-3">Sprzedaż i Wynajem</h3>
@@ -221,13 +247,13 @@ export default function KTSPHome() {
           </div>
         </div>
 
-        {/* Featured Properties Grid with Individual Sliders */}
-        <div className="mb-12 mt-24">
-          <h2 className="text-3xl font-bold text-slate-800 mb-8 text-center">
-            Wyróżnione oferty
-          </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                 {/* Featured Properties Grid with Individual Sliders */}
+                   <div className="mb-8 md:mb-10 lg:mb-12 xl:mb-16 mt-16 md:mt-20 lg:mt-24 xl:mt-32">
+           <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-6 md:mb-8 text-center">
+             Wyróżnione oferty
+           </h2>
+           
+           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
             {featuredProperties.map((property, propertyIndex) => (
               <div key={property.id} className="bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
                 {/* Image Slider Container */}
@@ -307,14 +333,14 @@ export default function KTSPHome() {
           </div>
         </div>
 
-        {/* Contact Section */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/50 shadow-lg mt-12 pb-14" >
-          <div className="text-center">
-            <h2 className="text-3xl font-bold text-slate-800 mb-4">Skontaktuj się z nami</h2>
-            <p className="text-slate-600 mb-6">
-              Jesteśmy tutaj, aby pomóc Ci znaleźć wymarzone miejsce
-            </p>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+                 {/* Contact Section */}
+                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-6 lg:p-8 xl:p-10 border border-white/50 shadow-lg mt-8 md:mt-10 lg:mt-12 xl:mt-16 pb-10 md:pb-12 lg:pb-14 xl:pb-16" >
+           <div className="text-center">
+             <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-4">Skontaktuj się z nami</h2>
+             <p className="text-slate-600 mb-6">
+               Jesteśmy tutaj, aby pomóc Ci znaleźć wymarzone miejsce
+             </p>
+             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
               <div className="flex items-center justify-center gap-3">
                 <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
                   <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">

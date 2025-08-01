@@ -6,8 +6,34 @@ export default function KTSPContact() {
     <div className="w-screen min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
       {/* Header */}
       <div className="w-full bg-white/80 backdrop-blur-md border-b border-slate-200/50 sticky top-0 z-50">
-        <div className="w-full px-4 md:px-32 lg:px-60 xl:px-80 py-6">
-          <div className="flex justify-between items-center relative">
+                      <div className="w-full px-4 md:px-6 lg:px-8 xl:px-32 2xl:px-40 py-4 md:py-5 lg:py-6 xl:py-8">
+          {/* Mobile Layout */}
+          <div className="md:hidden flex flex-col items-center space-y-4">
+            <Link to="/main" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 cursor-pointer">
+              KTSP
+            </Link>
+            <div className="flex gap-4 text-sm font-medium text-slate-700">
+              <Link to="/main" className="hover:text-blue-600 transition-colors duration-300 relative group">
+                MAIN
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <Link to="/oferty" className="hover:text-blue-600 transition-colors duration-300 relative group">
+                OFERTY
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <Link to="/o-nas" className="hover:text-blue-600 transition-colors duration-300 relative group">
+                O NAS
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
+              </Link>
+              <Link to="/kontakt" className="text-blue-600 relative group">
+                KONTAKT
+                <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600"></span>
+              </Link>
+            </div>
+          </div>
+          
+          {/* Desktop Layout */}
+          <div className="hidden md:flex justify-between items-center relative">
             <div className="flex gap-8 text-base font-medium text-slate-700">
               <Link to="/main" className="hover:text-blue-600 transition-colors duration-300 relative group">
                 MAIN
@@ -26,16 +52,16 @@ export default function KTSPContact() {
                 <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600"></span>
               </Link>
             </div>
-                         <Link to="/main" className="absolute left-1/2 transform -translate-x-1/2 text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 cursor-pointer">
-               KTSP
-             </Link>
+            <Link to="/main" className="absolute left-1/2 transform -translate-x-1/2 text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 cursor-pointer">
+              KTSP
+            </Link>
             <div className="w-24" />
           </div>
         </div>
       </div>
 
       {/* Hero Section */}
-      <div className="w-full px-4 md:px-32 lg:px-60 xl:px-80 py-12">
+                  <div className="w-full px-4 md:px-6 lg:px-8 xl:px-32 2xl:px-40 py-8 md:py-10 lg:py-12 xl:py-16">
         <div className="text-center mb-16">
           <h1 className="text-5xl font-bold text-slate-800 mb-6">
             Poznaj nas bliżej
