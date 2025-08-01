@@ -12,6 +12,8 @@ export default function KTSPHome() {
     years: 0,
     support: 0
   });
+  const [isVisible, setIsVisible] = useState(false);
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const statsRef = useRef(null);
   
   const featuredProperties = [
@@ -56,6 +58,19 @@ export default function KTSPHome() {
     });
   };
 
+  // Mouse tracking effect for parallax
+  useEffect(() => {
+    const handleMouseMove = (e) => {
+      setMousePosition({
+        x: (e.clientX / window.innerWidth - 0.5) * 20,
+        y: (e.clientY / window.innerHeight - 0.5) * 20
+      });
+    };
+
+    window.addEventListener('mousemove', handleMouseMove);
+    return () => window.removeEventListener('mousemove', handleMouseMove);
+  }, []);
+
   // Animation effect for stats
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -64,6 +79,7 @@ export default function KTSPHome() {
           if (entry.isIntersecting) {
             // Start animation when stats section is visible
             animateNumbers();
+            setIsVisible(true);
             observer.unobserve(entry.target);
           }
         });
@@ -120,132 +136,147 @@ export default function KTSPHome() {
   return (
     <div className="w-screen min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
              {/* Header */}
-       <div className="w-full bg-white/80 backdrop-blur-md border-b border-slate-200/50 sticky top-0 z-50">
-                                                                                                                                                               <div className="w-full px-4 md:px-6 lg:px-8 xl:px-32 2xl:px-48 py-4 md:py-5 lg:py-6 xl:py-8">
-           {/* Mobile Layout */}
-           <div className="md:hidden flex flex-col items-center space-y-4">
-             <Link to="/main" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 cursor-pointer">
-               KTSP
-             </Link>
-             <div className="flex gap-4 text-sm font-medium text-slate-700">
-               <Link to="/main" className="text-blue-600 relative group">
-                 MAIN
-                 <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600"></span>
-               </Link>
-               <Link to="/oferty" className="hover:text-blue-600 transition-colors duration-300 relative group">
-                 OFERTY
-                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-               </Link>
-               <Link to="/o-nas" className="hover:text-blue-600 transition-colors duration-300 relative group">
-                 O NAS
-                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-               </Link>
-               <Link to="/kontakt" className="hover:text-blue-600 transition-colors duration-300 relative group">
-                 KONTAKT
-                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-               </Link>
-             </div>
-           </div>
-           
-           {/* Desktop Layout */}
-           <div className="hidden md:flex justify-between items-center relative">
-             <div className="flex gap-8 text-base font-medium text-slate-700">
-               <Link to="/main" className="text-blue-600 relative group">
-                 MAIN
-                 <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-blue-600"></span>
-               </Link>
-               <Link to="/oferty" className="hover:text-blue-600 transition-colors duration-300 relative group">
-                 OFERTY
-                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-               </Link>
-               <Link to="/o-nas" className="hover:text-blue-600 transition-colors duration-300 relative group">
-                 O NAS
-                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-               </Link>
-               <Link to="/kontakt" className="hover:text-blue-600 transition-colors duration-300 relative group">
-                 KONTAKT
-                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-600 transition-all duration-300 group-hover:w-full"></span>
-               </Link>
-             </div>
-             <Link to="/main" className="absolute left-1/2 transform -translate-x-1/2 text-3xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 cursor-pointer">
-               KTSP
-             </Link>
-             <div className="w-24" />
-           </div>
-         </div>
-       </div>
+      <div className="w-full bg-white/80 backdrop-blur-md border-b border-slate-200/50 sticky top-0 z-50">
+        <div className="w-full px-4 md:px-6 lg:px-8 xl:px-32 2xl:px-48 py-4 md:py-5 lg:py-6 xl:py-8">
+          {/* Mobile Layout */}
+          <div className="md:hidden flex flex-col items-center space-y-4">
+            <Link to="/main" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 cursor-pointer">
+              KTSP
+            </Link>
+            <div className="flex space-x-6">
+              <Link to="/main" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+                STRONA GŁÓWNA
+              </Link>
+              <Link to="/oferty" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+                OFERTY
+              </Link>
+              <Link to="/o-nas" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+                O NAS
+              </Link>
+              <Link to="/kontakt" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+                KONTAKT
+              </Link>
+              <Link to="/pozyczki" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+                POŻYCZKI
+              </Link>
+            </div>
+          </div>
+          
+          {/* Desktop Layout */}
+          <div className="hidden md:flex justify-between items-center">
+            <Link to="/main" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 cursor-pointer">
+              KTSP
+            </Link>
+            <div className="flex space-x-8">
+              <Link to="/main" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+                STRONA GŁÓWNA
+              </Link>
+              <Link to="/oferty" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+                OFERTY
+              </Link>
+              <Link to="/o-nas" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+                O NAS
+              </Link>
+              <Link to="/kontakt" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+                KONTAKT
+              </Link>
+              <Link to="/pozyczki" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+                POŻYCZKI
+              </Link>
+            </div>
+          </div>
+        </div>
+      </div>
 
              {/* Hero Section */}
-                                                                                                                               <div className="w-full px-4 md:px-6 lg:px-8 xl:px-32 2xl:px-48 py-8 md:py-10 lg:py-12 xl:py-16 min-h-screen flex flex-col justify-center">
-        <div className="text-center mb-24">
-          <h1 className="text-6xl font-bold text-slate-800 mb-6">
-            Witamy w
-            <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> KTSP</span>
-          </h1>
-          <p className="text-2xl text-slate-600 max-w-3xl mx-auto mb-8">
-            Profesjonalne biuro nieruchomości w Kaliszu. 
-            Pomagamy znaleźć wymarzone miejsce do życia i inwestowania.
-          </p>
-          <Link
-            to="/oferty"
-            className="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-          >
-            Zobacz nasze oferty
-          </Link>
-        </div>
+             <div className="w-full px-4 md:px-6 lg:px-8 xl:px-32 2xl:px-48 py-8 md:py-10 lg:py-12 xl:py-16 min-h-screen flex flex-col justify-center relative overflow-hidden">
+               {/* Animated Background Elements */}
+               <div 
+                 className="absolute inset-0 pointer-events-none"
+                 style={{
+                   transform: `translate(${mousePosition.x * 0.5}px, ${mousePosition.y * 0.5}px)`
+                 }}
+               >
+                 <div className="absolute top-20 left-20 w-32 h-32 bg-blue-200/20 rounded-full blur-xl"></div>
+                 <div className="absolute top-40 right-32 w-24 h-24 bg-indigo-200/20 rounded-full blur-xl"></div>
+                 <div className="absolute bottom-32 left-1/4 w-40 h-40 bg-purple-200/20 rounded-full blur-xl"></div>
+                 <div className="absolute bottom-20 right-20 w-28 h-28 bg-cyan-200/20 rounded-full blur-xl"></div>
+               </div>
+               
+               <div 
+                 className="text-center mb-24 relative z-10"
+                 style={{
+                   transform: `translate(${mousePosition.x * 0.1}px, ${mousePosition.y * 0.1}px)`
+                 }}
+               >
+                 <h1 className="text-6xl font-bold text-slate-800 mb-6 animate-fade-in">
+                   Witamy w
+                   <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent "> KTSP</span>
+                 </h1>
+                 <p className="text-2xl text-slate-600 max-w-3xl mx-auto mb-8 animate-slide-up">
+                   Profesjonalne biuro nieruchomości w Kaliszu. 
+                   Pomagamy znaleźć wymarzone miejsce do życia i inwestowania.
+                 </p>
+                 <Link
+                   to="/oferty"
+                   className="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 animate-bounce-in"
+                 >
+                   Zobacz nasze oferty
+                 </Link>
+               </div>
 
                  {/* Stats Section */}
-         <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-12">
-          <div className="text-center">
-            <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300">
-              {animatedValues.clients}+
-            </div>
-            <div className="text-slate-600">Zadowolonych klientów</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300">
-              {animatedValues.properties}+
-            </div>
-            <div className="text-slate-600">Sprzedanych nieruchomości</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300">
-              {animatedValues.years}+
-            </div>
-            <div className="text-slate-600">Lat doświadczenia</div>
-          </div>
-          <div className="text-center">
-            <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300">
-              {animatedValues.support}/7
-            </div>
-            <div className="text-slate-600">Wsparcie klienta</div>
-          </div>
-        </div>
+                 <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-12">
+                   <div className={`text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '0ms' }}>
+                     <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
+                       {animatedValues.clients}+
+                     </div>
+                     <div className="text-slate-600">Zadowolonych klientów</div>
+                   </div>
+                   <div className={`text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '200ms' }}>
+                     <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
+                       {animatedValues.properties}+
+                     </div>
+                     <div className="text-slate-600">Sprzedanych nieruchomości</div>
+                   </div>
+                   <div className={`text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '400ms' }}>
+                     <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
+                       {animatedValues.years}+
+                     </div>
+                     <div className="text-slate-600">Lat doświadczenia</div>
+                   </div>
+                   <div className={`text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '600ms' }}>
+                     <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
+                       {animatedValues.support}/7
+                     </div>
+                     <div className="text-slate-600">Wsparcie klienta</div>
+                   </div>
+                 </div>
 
                  {/* Features Grid */}
-         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12 mt-8 md:mt-12">
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-            <div className=" text-center text-4xl mb-4">🏠</div>
-            <h3 className="text-xl font-semibold text-slate-800 mb-3">Sprzedaż i Wynajem</h3>
-            <p className="text-slate-600">
-              Oferujemy sprzedaż oraz wynajem mieszkań, domów i działek na terenie całej Polski.
-            </p>
-          </div>
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-            <div className=" text-center text-4xl mb-4">🔑</div>
-            <h3 className="text-xl font-semibold text-slate-800 mb-3">Kompleksowa Obsługa</h3>
-            <p className="text-slate-600">
-              Od wyceny nieruchomości po podpisanie umowy - jesteśmy z Tobą na każdym kroku.
-            </p>
-          </div>
-          <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2">
-            <div className=" text-center text-4xl mb-4">📊</div>
-            <h3 className="text-xl font-semibold text-slate-800 mb-3">Doradztwo Inwestycyjne</h3>
-            <p className="text-slate-600">
-              Wsparcie w zakupie nieruchomości inwestycyjnych i zarządzaniu majątkiem.
-            </p>
-          </div>
-        </div>
+                 <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12 mt-8 md:mt-12">
+                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-white/90 group">
+                     <div className="text-center text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🏠</div>
+                     <h3 className="text-xl font-semibold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">Sprzedaż i Wynajem</h3>
+                     <p className="text-slate-600 group-hover:text-slate-700 transition-colors duration-300">
+                       Oferujemy sprzedaż oraz wynajem mieszkań, domów i działek na terenie całej Polski.
+                     </p>
+                   </div>
+                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-white/90 group">
+                     <div className="text-center text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🔑</div>
+                     <h3 className="text-xl font-semibold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">Kompleksowa Obsługa</h3>
+                     <p className="text-slate-600 group-hover:text-slate-700 transition-colors duration-300">
+                       Od wyceny nieruchomości po podpisanie umowy - jesteśmy z Tobą na każdym kroku.
+                     </p>
+                   </div>
+                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-white/90 group">
+                     <div className="text-center text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">📊</div>
+                     <h3 className="text-xl font-semibold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">Doradztwo Inwestycyjne</h3>
+                     <p className="text-slate-600 group-hover:text-slate-700 transition-colors duration-300">
+                       Wsparcie w zakupie nieruchomości inwestycyjnych i zarządzaniu majątkiem.
+                     </p>
+                   </div>
+                 </div>
 
                  {/* Featured Properties Grid with Individual Sliders */}
                    <div className="mb-8 md:mb-10 lg:mb-12 xl:mb-16 mt-16 md:mt-20 lg:mt-24 xl:mt-32">
@@ -379,6 +410,46 @@ export default function KTSPHome() {
           </div>
         </div>
       </div>
+
+      {/* Footer */}
+      <footer className="bg-slate-800 text-white py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div>
+              <h3 className="text-2xl font-bold mb-4">
+                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                  KTSP
+                </span>
+              </h3>
+              <p className="text-slate-300">
+                Profesjonalne biuro nieruchomości w Kaliszu.
+                Oferujemy kompleksowe usługi w zakresie sprzedaży, wynajmu i doradztwa finansowego.
+              </p>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Usługi</h4>
+              <ul className="space-y-2 text-slate-300">
+                <li>• Sprzedaż nieruchomości</li>
+                <li>• Wynajem nieruchomości</li>
+                <li>• Doradztwo inwestycyjne</li>
+                <li>• Pożyczki (współpraca z Notus)</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Kontakt</h4>
+              <ul className="space-y-2 text-slate-300">
+                <li>📞 +48 123 456 789</li>
+                <li>✉️ biuro@ktsp.pl</li>
+                <li>📍 Kalisz, ul. Przykładowa 123</li>
+                <li>🕒 Pon-Pt: 8:00-18:00</li>
+              </ul>
+            </div>
+          </div>
+          <div className="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
+            <p>&copy; 2024 KTSP. Wszystkie prawa zastrzeżone.</p>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }

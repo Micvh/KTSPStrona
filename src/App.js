@@ -5,6 +5,7 @@ import KTSPOffers from "./KTSPOffers";
 import KtspOferty from "./KtspOferty";
 import KTSPContact from "./KTSPContact";
 import KTSPAbout from "./KTSPAbout";
+import KTSPLoans from "./KTSPLoans";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/oferty/:id" element={<KtspOferty />} />
         <Route path="/o-nas" element={<KTSPAbout />} />
         <Route path="/kontakt" element={<KTSPContact />} />
+        <Route path="/pozyczki" element={<KTSPLoans />} />
       </Routes>
     </Router>
   );
