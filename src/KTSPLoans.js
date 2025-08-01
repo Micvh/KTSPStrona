@@ -4,12 +4,21 @@ import { Link } from "react-router-dom";
 export default function KTSPLoans() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isVisible, setIsVisible] = useState(false);
+  const [showContactModal, setShowContactModal] = useState(false);
   const [animatedValues, setAnimatedValues] = useState({
     clients: 0,
     loans: 0,
     years: 0,
     satisfaction: 0
   });
+
+  const openContactModal = () => {
+    setShowContactModal(true);
+  };
+
+  const closeContactModal = () => {
+    setShowContactModal(false);
+  };
 
   // Mouse tracking effect for parallax
   useEffect(() => {
@@ -42,10 +51,10 @@ export default function KTSPLoans() {
         const progress = currentStep / steps;
         
         setAnimatedValues({
-          clients: Math.floor(150 * progress),
-          loans: Math.floor(89 * progress),
-          years: Math.floor(8 * progress),
-          satisfaction: Math.floor(98 * progress)
+          clients: Math.floor(25 * progress),
+          loans: Math.floor(12 * progress),
+          years: Math.floor(1 * progress),
+          satisfaction: Math.floor(100 * progress)
         });
         
         if (currentStep >= steps) {
@@ -173,19 +182,19 @@ export default function KTSPLoans() {
           >
             <h1 className="text-6xl font-bold text-slate-800 mb-6 animate-fade-in">
               Pożyczki
-              <span className="bg-gradient-to-r from-notusPurple via-purple-500 to-purple-300 bg-clip-text text-transparent "> Notus</span>
+              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent "> Notus</span>
             </h1>
-            <p className="text-2xl text-slate-600 max-w-3xl mx-auto mb-8 animate-slide-up">
-              Współpracujemy z firmą Notus, aby oferować naszym klientom najlepsze rozwiązania finansowe. 
-              Znajdź idealną pożyczkę dostosowaną do Twoich potrzeb.
-            </p>
+                         <p className="text-2xl text-slate-600 max-w-3xl mx-auto mb-8 animate-slide-up">
+               Rozpoczynamy współpracę z firmą Notus, aby oferować naszym klientom nowe możliwości finansowe. 
+               Jesteśmy dumni z tego, że możemy poszerzyć nasze usługi o pożyczki.
+             </p>
             <div className="animate-bounce-in">
-              <Link
-                to="/kontakt"
+              <button
+                onClick={openContactModal}
                 className="inline-block bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
                 Skontaktuj się z doradcą
-              </Link>
+              </button>
             </div>
           </div>
 
@@ -203,12 +212,12 @@ export default function KTSPLoans() {
               </div>
               <div className="text-slate-600">Udzielonych pożyczek</div>
             </div>
-            <div className={`text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '400ms' }}>
-              <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
-                {animatedValues.years}+
-              </div>
-              <div className="text-slate-600">Lat współpracy z Notus</div>
-            </div>
+                         <div className={`text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '400ms' }}>
+               <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
+                 {animatedValues.years}+
+               </div>
+               <div className="text-slate-600">Rok współpracy z Notus</div>
+             </div>
             <div className={`text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '600ms' }}>
               <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
                 {animatedValues.satisfaction}%
@@ -261,9 +270,12 @@ export default function KTSPLoans() {
                     </li>
                   ))}
                 </ul>
-                <button className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                  Więcej informacji
-                </button>
+                                 <button 
+                   onClick={openContactModal}
+                   className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                 >
+                   Więcej informacji
+                 </button>
               </div>
             ))}
           </div>
@@ -278,27 +290,28 @@ export default function KTSPLoans() {
                   Twój doradca finansowy
                 </h2>
                 <div className="mb-6">
-                  <h3 className="text-2xl font-semibold text-slate-800 mb-2">Anna Kowalska</h3>
+                  <h3 className="text-2xl font-semibold text-slate-800 mb-2">Halina Bolgudarna</h3>
                   <p className="text-blue-600 font-medium">Specjalista ds. pożyczek</p>
                 </div>
-                <p className="text-slate-600 mb-6 leading-relaxed">
-                  Z ponad 8-letnim doświadczeniem w branży finansowej, specjalizuję się w doradztwie kredytowym 
-                  i pomagam klientom znaleźć najlepsze rozwiązania finansowe. Współpracuję z firmą Notus, 
-                  aby zapewnić najwyższą jakość usług i najlepsze warunki dla naszych klientów.
-                </p>
+                                 <p className="text-slate-600 mb-6 leading-relaxed">
+                   Z entuzjazmem rozpoczynam nową przygodę w branży finansowej jako doradca ds. pożyczek. 
+                   Choć jestem nowa w tej dziedzinie, mam solidne podstawy w obsłudze klienta i jestem 
+                   gotowa pomóc w znalezieniu najlepszych rozwiązań finansowych. Współpracuję z firmą Notus, 
+                   aby zapewnić profesjonalną obsługę i atrakcyjne warunki.
+                 </p>
                 <div className="space-y-3">
                   <div className="flex items-center">
                     <span className="text-blue-500 mr-3">🎓</span>
                     <span className="text-slate-600">Certyfikowany doradca finansowy</span>
                   </div>
-                  <div className="flex items-center">
-                    <span className="text-blue-500 mr-3">💼</span>
-                    <span className="text-slate-600">8+ lat doświadczenia w branży</span>
-                  </div>
-                  <div className="flex items-center">
-                    <span className="text-blue-500 mr-3">🤝</span>
-                    <span className="text-slate-600">Ponad 200 zadowolonych klientów</span>
-                  </div>
+                                     <div className="flex items-center">
+                     <span className="text-blue-500 mr-3">💼</span>
+                     <span className="text-slate-600">Nowa specjalizacja w pożyczkach</span>
+                   </div>
+                   <div className="flex items-center">
+                     <span className="text-blue-500 mr-3">🤝</span>
+                     <span className="text-slate-600">Pierwsi zadowoleni klienci</span>
+                   </div>
                 </div>
               </div>
               <div className="text-center">
@@ -333,21 +346,21 @@ export default function KTSPLoans() {
                 <div className="flex items-center">
                   <span className="text-blue-500 mr-3 text-xl">👩‍💼</span>
                   <div>
-                    <p className="font-semibold text-slate-800">Anna Kowalska</p>
+                    <p className="font-semibold text-slate-800">Halina Bolgudarna</p>
                     <p className="text-slate-600">Specjalista ds. pożyczek</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <span className="text-blue-500 mr-3 text-xl">📞</span>
                   <div>
-                    <p className="font-semibold text-slate-800">+48 123 456 789</p>
+                    <p className="font-semibold text-slate-800">+48 502 187 414</p>
                     <p className="text-slate-600">Dedykowana linia pożyczkowa</p>
                   </div>
                 </div>
                 <div className="flex items-center">
                   <span className="text-blue-500 mr-3 text-xl">✉️</span>
                   <div>
-                    <p className="font-semibold text-slate-800">pozyczki@ktsp.pl</p>
+                    <p className="font-semibold text-slate-800">halina.bolgudarna@lokale.pl</p>
                     <p className="text-slate-600">Email ds. pożyczek</p>
                   </div>
                 </div>
@@ -373,13 +386,13 @@ export default function KTSPLoans() {
                     <p className="text-white/80">Partner finansowy KTSP</p>
                   </div>
                 </div>
-                <div className="flex items-center">
-                  <span className="text-white/80 mr-3 text-xl">⭐</span>
-                  <div>
-                    <p className="font-semibold">Sprawdzone rozwiązania</p>
-                    <p className="text-white/80">8+ lat współpracy</p>
-                  </div>
-                </div>
+                                 <div className="flex items-center">
+                   <span className="text-white/80 mr-3 text-xl">⭐</span>
+                   <div>
+                     <p className="font-semibold">Nowe możliwości</p>
+                     <p className="text-white/80">Rozpoczęcie współpracy</p>
+                   </div>
+                 </div>
                 <div className="flex items-center">
                   <span className="text-white/80 mr-3 text-xl">🎯</span>
                   <div>
@@ -395,15 +408,77 @@ export default function KTSPLoans() {
                   </div>
                 </div>
               </div>
-              <div className="mt-6 text-center">
-                <button className="bg-white text-blue-600 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                  Sprawdź ofertę Notus
-                </button>
-              </div>
+                             <div className="mt-6 text-center">
+                 <button 
+                 
+                 onClick={() => window.open('https://notus.pl', '_blank')}
+                   className="bg-white text-blue-600 px-6 py-3 rounded-xl font-semibold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                 >
+                   Sprawdź ofertę Notus
+                 </button>
+               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Contact Modal */}
+      {showContactModal && (
+        <div className="fixed inset-0 bg-black/50 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white rounded-2xl p-8 max-w-md w-full shadow-2xl">
+            <div className="text-center mb-6">
+              <h3 className="text-2xl font-bold text-slate-800 mb-2">Halina Bolgudarna</h3>
+              <p className="text-blue-600 font-semibold">Specjalista ds. pożyczek</p>
+            </div>
+            
+            <div className="space-y-4">
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center">
+                  <svg className="w-5 h-5 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="font-semibold text-slate-800">Telefon</div>
+                  <div className="text-slate-600">+48 502 187 414</div>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center">
+                  <svg className="w-5 h-5 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                  </svg>
+                </div>
+                <div>
+                  <div className="font-semibold text-slate-800">Email</div>
+                  <div className="text-slate-600">halina.bolgudarna@lokale.pl</div>
+                </div>
+              </div>
+              
+                             <div className="pt-4 border-t border-slate-200">
+                 <div className="font-semibold text-slate-800 mb-2">Doświadczenie</div>
+                 <div className="text-slate-600 text-sm">
+                   Z entuzjazmem rozpoczynam nową przygodę w branży finansowej jako doradca ds. pożyczek. 
+                   Choć jestem nowa w tej dziedzinie, mam solidne podstawy w obsłudze klienta i jestem 
+                   gotowa pomóc w znalezieniu najlepszych rozwiązań finansowych. Współpracuję z firmą Notus, 
+                   aby zapewnić profesjonalną obsługę i atrakcyjne warunki.
+                 </div>
+               </div>
+            </div>
+            
+            <div className="mt-8 flex justify-end">
+              <button 
+                onClick={closeContactModal}
+                className="px-6 py-2 bg-slate-100 text-slate-700 rounded-lg hover:bg-slate-200 transition-colors duration-300"
+              >
+                Zamknij
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Footer */}
       <footer className="bg-slate-800 text-white py-12">
