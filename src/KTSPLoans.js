@@ -74,31 +74,43 @@ export default function KTSPLoans() {
       id: 1,
       title: "Pożyczka hipoteczna",
       description: "Pożyczka pod zastaw nieruchomości z atrakcyjnymi warunkami i niskim oprocentowaniem.",
-      amount: "50 000 - 500 000 zł",
-      rate: "od 3.5%",
-      term: "do 25 lat",
-      features: ["Bez prowizji", "Możliwość wcześniejszej spłaty", "Elastyczne raty", "Szybka decyzja"],
+      features: ["Indywidualne warunki", "Profesjonalne doradztwo", "Bezpieczne finansowanie"],
       icon: "🏠"
     },
     {
       id: 2,
       title: "Pożyczka gotówkowa",
       description: "Szybka pożyczka gotówkowa bez zbędnych formalności i skomplikowanych procedur.",
-      amount: "5 000 - 100 000 zł",
-      rate: "od 5.2%",
-      term: "do 10 lat",
-      features: ["Decyzja w 24h", "Bez zaświadczeń o dochodach", "Możliwość refinansowania", "Bez ukrytych kosztów"],
+      features: ["Szybka procedura", "Elastyczne warunki", "Profesjonalna obsługa"],
       icon: "💳"
     },
     {
       id: 3,
       title: "Pożyczka konsolidacyjna",
       description: "Połącz wszystkie swoje zobowiązania w jedną, niższą ratę miesięczną.",
-      amount: "10 000 - 300 000 zł",
-      rate: "od 4.1%",
-      term: "do 15 lat",
-      features: ["Konsolidacja wszystkich kredytów", "Niższa rata miesięczna", "Jeden termin płatności", "Oszczędność na odsetkach"],
+      features: ["Uproszczone spłacanie", "Oszczędność czasu", "Lepsze zarządzanie finansami"],
       icon: "🔗"
+    },
+    {
+      id: 4,
+      title: "Kredyty refinansowe",
+      description: "Refinansowanie istniejących kredytów na lepszych warunkach i niższym oprocentowaniu.",
+      features: ["Lepsze warunki", "Oszczędność pieniędzy", "Profesjonalne doradztwo"],
+      icon: "🔄"
+    },
+    {
+      id: 5,
+      title: "Pożyczka hipoteczna",
+      description: "Pożyczka zabezpieczona hipoteką na nieruchomości z bardzo atrakcyjnymi warunkami.",
+      features: ["Atrakcyjne warunki", "Długi okres spłaty", "Bezpieczne zabezpieczenie"],
+      icon: "🏘️"
+    },
+    {
+      id: 6,
+      title: "Kredyt dla firm",
+      description: "Kompleksowe finansowanie dla przedsiębiorstw - od małych firm po duże korporacje.",
+      features: ["Dedykowane rozwiązania", "Elastyczne warunki", "Wsparcie rozwoju biznesu"],
+      icon: "🏢"
     }
   ];
 
@@ -236,7 +248,7 @@ export default function KTSPLoans() {
             {loanOffers.map((offer, index) => (
               <div 
                 key={offer.id}
-                className={`bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-white/90 group transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
+                className={`bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-white/90 group transform transition-all duration-1000 flex flex-col h-full ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}
                 style={{ transitionDelay: `${800 + index * 200}ms` }}
               >
                 <div className="text-center text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
@@ -248,31 +260,19 @@ export default function KTSPLoans() {
                 <p className="text-slate-600 mb-6 text-center">
                   {offer.description}
                 </p>
-                <div className="space-y-3 mb-6">
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-600">Kwota:</span>
-                    <span className="font-semibold text-slate-800">{offer.amount}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-600">Oprocentowanie:</span>
-                    <span className="font-semibold text-blue-600">{offer.rate}</span>
-                  </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-slate-600">Okres:</span>
-                    <span className="font-semibold text-slate-800">{offer.term}</span>
+                <div className="mb-6 flex-grow flex items-center justify-center">
+                  <div className="text-center space-x-4">
+                    {offer.features.map((feature, featureIndex) => (
+                      <span key={featureIndex} className="inline-flex items-center text-sm text-slate-600">
+                        <span className="text-blue-500 mr-2">✓</span>
+                        {feature}
+                      </span>
+                    ))}
                   </div>
                 </div>
-                <ul className="space-y-2 mb-6">
-                  {offer.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-center text-sm text-slate-600">
-                      <span className="text-blue-500 mr-2">✓</span>
-                      {feature}
-                    </li>
-                  ))}
-                </ul>
                                  <button 
                    onClick={openContactModal}
-                   className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                   className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white py-3 px-6 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1 mt-auto"
                  >
                    Więcej informacji
                  </button>
@@ -291,7 +291,12 @@ export default function KTSPLoans() {
                 </h2>
                 <div className="mb-6">
                   <h3 className="text-2xl font-semibold text-slate-800 mb-2">Halina Bolgudarna</h3>
-                  <p className="text-blue-600 font-medium">Specjalista ds. pożyczek</p>
+                  <p 
+                    className="text-blue-600 font-medium cursor-pointer hover:text-blue-700 transition-colors duration-300"
+                    onClick={openContactModal}
+                  >
+                    Specjalista ds. pożyczek
+                  </p>
                 </div>
                                  <p className="text-slate-600 mb-6 leading-relaxed">
                    Z entuzjazmem rozpoczynam nową przygodę w branży finansowej jako doradca ds. pożyczek. 
@@ -322,7 +327,7 @@ export default function KTSPLoans() {
                   <div className="bg-blue-50 rounded-xl p-4">
                     <h4 className="font-semibold text-slate-800 mb-2">Dedykowany kontakt</h4>
                     <p className="text-slate-600 text-sm">
-                      Anna Kowalska jest Twoim osobistym doradcą ds. pożyczek. 
+                    Halina Bolgudarna jest Twoim osobistym doradcą ds. pożyczek. 
                       Skontaktuj się bezpośrednio, aby omówić swoje potrzeby finansowe.
                     </p>
                   </div>
@@ -367,8 +372,8 @@ export default function KTSPLoans() {
                 <div className="flex items-center">
                   <span className="text-blue-500 mr-3 text-xl">🕒</span>
                   <div>
-                    <p className="font-semibold text-slate-800">Pon-Pt: 8:00-18:00</p>
-                    <p className="text-slate-600">Sob: 9:00-14:00</p>
+                    <p className="font-semibold text-slate-800">Pon-Pt: 8:00-16:00</p>
+                    <p className="text-slate-600">Weekend: zamknięte</p>
                   </div>
                 </div>
               </div>
@@ -403,8 +408,8 @@ export default function KTSPLoans() {
                 <div className="flex items-center">
                   <span className="text-white/80 mr-3 text-xl">⚡</span>
                   <div>
-                    <p className="font-semibold">Szybka decyzja</p>
-                    <p className="text-white/80">Do 24 godzin</p>
+                    <p className="font-semibold">Współpraca z Klienta</p>
+                    <p className="text-white/80">Dbamy o klienta na każdym etapie procesu</p>
                   </div>
                 </div>
               </div>
@@ -483,7 +488,7 @@ export default function KTSPLoans() {
       {/* Footer */}
       <footer className="bg-slate-800 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <h3 className="text-2xl font-bold mb-4">
                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
@@ -505,17 +510,26 @@ export default function KTSPLoans() {
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-4">Kontakt</h4>
+              <h4 className="text-lg font-semibold mb-4">Kontakt nieruchomości</h4>
               <ul className="space-y-2 text-slate-300">
-                <li>📞 +48 123 456 789</li>
-                <li>✉️ biuro@ktsp.pl</li>
-                <li>📍 Kalisz, ul. Przykładowa 123</li>
-                <li>🕒 Pon-Pt: 8:00-18:00</li>
+                <li>📞 +48 502 187 414</li>
+                <li>✉️ michal.czarnek@lokale.pl</li>
+                <li>📍 Kalisz, ul. Dobrzecka 95</li>
+                <li>🕒 Pon-Pt: 8:00-16:00</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Kontakt pożyczki</h4>
+              <ul className="space-y-2 text-slate-300">
+     <li>📞 +48 502 187 414</li>
+                 <li>✉️ halina.bolgudarna@lokale.pl</li>
+                 <li>📍 Kalisz, ul. Dobrzecka 95</li>
+                 <li>🕒 Pon-Pt: 8:00-16:00</li>
               </ul>
             </div>
           </div>
           <div className="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
-            <p>&copy; 2024 KTSP. Wszystkie prawa zastrzeżone.</p>
+            <p>&copy; 2025 KTSP. Wszystkie prawa zastrzeżone.</p>
           </div>
         </div>
       </footer>

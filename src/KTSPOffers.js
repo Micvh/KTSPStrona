@@ -230,6 +230,7 @@ export default function KTSPOffers() {
   const [transactionType, setTransactionType] = useState("Wszystkie");
   const [sortBy, setSortBy] = useState("Cena (od najniższej)");
   const [currentSlides, setCurrentSlides] = useState({});
+  const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
 
   // Initialize current slides for all properties
   React.useEffect(() => {
@@ -411,8 +412,8 @@ export default function KTSPOffers() {
 
         {/* Search Section */}
         <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 border border-white/50 shadow-xl mb-12">
-          {/* First Row */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-2">
+          {/* Basic Filters Row */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
             {/* Search Input */}
             <div className="lg:col-span-2">
               <label className="block text-sm font-medium text-slate-700 mb-2">Wyszukaj</label>
@@ -425,38 +426,6 @@ export default function KTSPOffers() {
               />
             </div>
 
-            {/* City */}
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Miasto</label>
-              <select
-                value={selectedCity}
-                onChange={(e) => setSelectedCity(e.target.value)}
-                className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-              >
-                {cities.map(city => (
-                  <option key={city} value={city}>{city}</option>
-                ))}
-              </select>
-            </div>
-
-            {/* Transaction Type */}
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Rodzaj transakcji</label>
-              <select 
-                value={transactionType}
-                onChange={(e) => setTransactionType(e.target.value)}
-                className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-              >
-                <option>Wszystkie</option>
-                <option>Przetarg</option>
-                <option>Sprzedaż</option>
-                <option>Wynajem</option>
-              </select>
-            </div>
-          </div>
-
-          {/* Second Row - Additional Filters */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-2">
             {/* Area Range */}
             <div>
               <label className="block text-sm font-medium text-slate-700 mb-2">Powierzchnia (m²)</label>
@@ -480,191 +449,279 @@ export default function KTSPOffers() {
               </div>
             </div>
 
-            {/* Rooms */}
+            {/* Transaction Type */}
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Liczba pokoi</label>
+              <label className="block text-sm font-medium text-slate-700 mb-2">Rodzaj transakcji</label>
               <select 
-                value={rooms}
-                onChange={(e) => setRooms(e.target.value)}
+                value={transactionType}
+                onChange={(e) => setTransactionType(e.target.value)}
                 className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
               >
                 <option>Wszystkie</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-              </select>
-            </div>
-
-            {/* Featured Properties */}
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Status</label>
-              <select 
-                value={status}
-                onChange={(e) => setStatus(e.target.value)}
-                className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-              >
-                <option>Wszystkie</option>
-                <option>Wyróżnione</option>
-                <option>Nowe</option>
-                <option>Promocyjne</option>
-              </select>
-            </div>
-
-            {/* Price per m² */}
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Cena za m²</label>
-              <div className="flex gap-2">
-                <input
-                  type="number"
-                  placeholder="Min"
-                  min="0"
-                  value={pricePerM2Range[0]}
-                  onChange={(e) => setPricePerM2Range([parseInt(e.target.value) || 0, pricePerM2Range[1]])}
-                  className="w-full px-2 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                />
-                <input
-                  type="number"
-                  placeholder="Max"
-                  min="0"
-                  value={pricePerM2Range[1]}
-                  onChange={(e) => setPricePerM2Range([pricePerM2Range[0], parseInt(e.target.value) || 50000])}
-                  className="w-full px-2 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                />
-              </div>
-            </div>
-          </div>
-
-          {/* Third Row - Advanced Filters */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-2">
-            {/* Floor */}
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Piętro</label>
-              <select 
-                value={floor}
-                onChange={(e) => setFloor(e.target.value)}
-                className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-              >
-                <option>Wszystkie</option>
-                <option>Parter</option>
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>8</option>
-              </select>
-            </div>
-
-            {/* Building Type */}
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Typ budynku</label>
-              <select 
-                value={buildingType}
-                onChange={(e) => setBuildingType(e.target.value)}
-                className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-              >
-                <option>Wszystkie</option>
-                <option>Blok</option>
-                <option>Kamienica</option>
-                <option>Dom wolnostojący</option>
-                <option>Dom szeregowy</option>
-                <option>Apartamentowiec</option>
-              </select>
-            </div>
-
-            {/* Year Built */}
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Rok budowy</label>
-              <div className="flex gap-2">
-                <input
-                  type="number"
-                  placeholder="Od"
-                  min="1900"
-                  max="2024"
-                  value={yearBuiltRange[0]}
-                  onChange={(e) => setYearBuiltRange([parseInt(e.target.value) || 1900, yearBuiltRange[1]])}
-                  className="w-full px-2 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                />
-                <input
-                  type="number"
-                  placeholder="Do"
-                  min="1900"
-                  max="2024"
-                  value={yearBuiltRange[1]}
-                  onChange={(e) => setYearBuiltRange([yearBuiltRange[0], parseInt(e.target.value) || 2024])}
-                  className="w-full px-2 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                />
-              </div>
-            </div>
-
-            {/* Condition */}
-            <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">Stan techniczny</label>
-              <select 
-                value={condition}
-                onChange={(e) => setCondition(e.target.value)}
-                className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-              >
-                <option>Wszystkie</option>
-                <option>Do remontu</option>
-                <option>Do wykończenia</option>
-                <option>Gotowe do zamieszkania</option>
-                <option>Po remoncie</option>
-                <option>Luksusowe wykończenie</option>
+                <option>Przetarg</option>
+                <option>Sprzedaż</option>
+                <option>Wynajem</option>
               </select>
             </div>
           </div>
 
-          {/* Price Range and Buttons Row */}
-          <div className="mt-3 flex gap-4 items-end">
-            {/* Price Range - Left Half */}
-            <div className="flex-1">
+                                {/* Price Range and Buttons Row */}
+            <div className="mb-4">
               <label className="block text-sm font-medium text-slate-700 mb-2">Zakres cenowy (zł)</label>
-              <div className="flex gap-4 items-center">
-                <div className="flex-1">
-                  <input
-                    type="number"
-                    placeholder="Min"
-                    min="0"
-                    max="5000000"
-                    value={priceRange[0]}
-                    onChange={(e) => setPriceRange([parseInt(e.target.value) || 0, priceRange[1]])}
-                    className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                  />
+              <div className={`flex gap-4 items-end transition-all duration-300 ${showAdvancedFilters ? 'w-full' : 'w-full'}`}>
+                {/* Price Range - Dynamic width */}
+                <div className={`transition-all duration-300 ${showAdvancedFilters ? 'w-full' : 'w-2/3'}`}>
+                  <div className="flex gap-2 items-center">
+                    <input
+                      type="number"
+                      placeholder="Min"
+                      min="0"
+                      max="5000000"
+                      value={priceRange[0]}
+                      onChange={(e) => setPriceRange([parseInt(e.target.value) || 0, priceRange[1]])}
+                      className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    />
+                    <div className="text-slate-500">-</div>
+                    <input
+                      type="number"
+                      placeholder="Max"
+                      min="0"
+                      max="5000000"
+                      value={priceRange[1]}
+                      onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value) || 5000000])}
+                      className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    />
+                  </div>
                 </div>
-                <div className="text-slate-500">-</div>
-                <div className="flex-1">
-                  <input
-                    type="number"
-                    placeholder="Max"
-                    min="0"
-                    max="5000000"
-                    value={priceRange[1]}
-                    onChange={(e) => setPriceRange([priceRange[0], parseInt(e.target.value) || 5000000])}
-                    className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-                  />
-                </div>
+                
+                {/* Buttons - Only visible when advanced filters are hidden */}
+                {!showAdvancedFilters && (
+                  <div className="flex gap-4 w-1/3 justify-end">
+                    <button 
+                      onClick={clearFilters}
+                      className="px-10 py-3 border border-slate-300 text-slate-700 rounded-xl hover:bg-slate-50 transition-all duration-300 font-medium flex-1"
+                    >
+                      Wyczyść filtry
+                    </button>
+                    <button className="px-12 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl flex-1">
+                      Wyszukaj
+                    </button>
+                  </div>
+                )}
               </div>
             </div>
 
-            {/* Search Buttons - Right Half */}
-            <div className="flex gap-4">
-              <button 
-                onClick={clearFilters}
-                className="px-6 py-3 border border-slate-300 text-slate-700 rounded-xl hover:bg-slate-50 transition-all duration-300"
-              >
-                Wyczyść filtry
-              </button>
-              <button className="px-8 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl">
-                Wyszukaj
-              </button>
-            </div>
-          </div>
-        </div>
+                     {/* Advanced Filters Toggle - Only show when filters are hidden */}
+           {!showAdvancedFilters && (
+             <div className="mb-4">
+               <button
+                 onClick={() => setShowAdvancedFilters(true)}
+                 className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300"
+               >
+                 <svg 
+                   className="w-5 h-5 transition-transform duration-300" 
+                   fill="none" 
+                   stroke="currentColor" 
+                   viewBox="0 0 24 24"
+                 >
+                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                 </svg>
+                 Więcej filtrów
+               </button>
+             </div>
+           )}
+
+          {/* Advanced Filters - Hidden by default */}
+          {showAdvancedFilters && (
+            <>
+              {/* Second Row - Additional Filters */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
+                {/* City */}
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Miasto</label>
+                  <select
+                    value={selectedCity}
+                    onChange={(e) => setSelectedCity(e.target.value)}
+                    className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                  >
+                    {cities.map(city => (
+                      <option key={city} value={city}>{city}</option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Rooms */}
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Liczba pokoi</label>
+                  <select 
+                    value={rooms}
+                    onChange={(e) => setRooms(e.target.value)}
+                    className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                  >
+                    <option>Wszystkie</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                  </select>
+                </div>
+
+                {/* Featured Properties */}
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Status</label>
+                  <select 
+                    value={status}
+                    onChange={(e) => setStatus(e.target.value)}
+                    className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                  >
+                    <option>Wszystkie</option>
+                    <option>Wyróżnione</option>
+                    <option>Nowe</option>
+                    <option>Promocyjne</option>
+                  </select>
+                </div>
+
+                {/* Price per m² */}
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Cena za m²</label>
+                  <div className="flex gap-2">
+                    <input
+                      type="number"
+                      placeholder="Min"
+                      min="0"
+                      value={pricePerM2Range[0]}
+                      onChange={(e) => setPricePerM2Range([parseInt(e.target.value) || 0, pricePerM2Range[1]])}
+                      className="w-full px-2 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    />
+                    <input
+                      type="number"
+                      placeholder="Max"
+                      min="0"
+                      value={pricePerM2Range[1]}
+                      onChange={(e) => setPricePerM2Range([pricePerM2Range[0], parseInt(e.target.value) || 50000])}
+                      className="w-full px-2 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Third Row - Advanced Filters */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-3 mb-4">
+                {/* Floor */}
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Piętro</label>
+                  <select 
+                    value={floor}
+                    onChange={(e) => setFloor(e.target.value)}
+                    className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                  >
+                    <option>Wszystkie</option>
+                    <option>Parter</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>8</option>
+                  </select>
+                </div>
+
+                {/* Building Type */}
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Typ budynku</label>
+                  <select 
+                    value={buildingType}
+                    onChange={(e) => setBuildingType(e.target.value)}
+                    className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                  >
+                    <option>Wszystkie</option>
+                    <option>Blok</option>
+                    <option>Kamienica</option>
+                    <option>Dom wolnostojący</option>
+                    <option>Dom szeregowy</option>
+                    <option>Apartamentowiec</option>
+                  </select>
+                </div>
+
+                {/* Year Built */}
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Rok budowy</label>
+                  <div className="flex gap-2">
+                    <input
+                      type="number"
+                      placeholder="Od"
+                      min="1900"
+                      max="2024"
+                      value={yearBuiltRange[0]}
+                      onChange={(e) => setYearBuiltRange([parseInt(e.target.value) || 1900, yearBuiltRange[1]])}
+                      className="w-full px-2 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    />
+                    <input
+                      type="number"
+                      placeholder="Do"
+                      min="1900"
+                      max="2024"
+                      value={yearBuiltRange[1]}
+                      onChange={(e) => setYearBuiltRange([yearBuiltRange[0], parseInt(e.target.value) || 2024])}
+                      className="w-full px-2 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                    />
+                  </div>
+                </div>
+
+                {/* Condition */}
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">Stan techniczny</label>
+                  <select 
+                    value={condition}
+                    onChange={(e) => setCondition(e.target.value)}
+                    className="w-full px-3 py-2 border border-slate-200 rounded-xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                  >
+                    <option>Wszystkie</option>
+                    <option>Do remontu</option>
+                    <option>Do wykończenia</option>
+                    <option>Gotowe do zamieszkania</option>
+                    <option>Po remoncie</option>
+                    <option>Luksusowe wykończenie</option>
+                  </select>
+                </div>
+                             </div>
+             </>
+           )}
+
+                       {/* Search Buttons and Hide Filters Button - Only visible when advanced filters are shown */}
+            {showAdvancedFilters && (
+              <div className="flex gap-4 justify-between items-center mt-4">
+                <button
+                  onClick={() => setShowAdvancedFilters(false)}
+                  className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300"
+                >
+                  <svg 
+                    className="w-5 h-5 transition-transform duration-300 rotate-180" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    viewBox="0 0 24 24"
+                  >
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  </svg>
+                  Ukryj więcej filtrów
+                </button>
+                <div className="flex gap-4">
+                  <button 
+                    onClick={clearFilters}
+                    className="px-8 py-3 border border-slate-300 text-slate-700 rounded-xl hover:bg-slate-50 transition-all duration-300 font-medium"
+                  >
+                    Wyczyść filtry
+                  </button>
+                  <button className="px-10 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+                    Wyszukaj
+                  </button>
+                </div>
+              </div>
+            )}
+         </div>
 
         {/* Results Count */}
         <div className="flex justify-between items-center mb-8">
@@ -820,45 +877,54 @@ export default function KTSPOffers() {
         )}
       </div>
 
-      {/* Footer */}
-      <footer className="bg-slate-800 text-white py-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <h3 className="text-2xl font-bold mb-4">
-                <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
-                  KTSP
-                </span>
-              </h3>
-              <p className="text-slate-300">
-                Profesjonalne biuro nieruchomości w Kaliszu.
-                Oferujemy kompleksowe usługi w zakresie sprzedaży, wynajmu i doradztwa finansowego.
-              </p>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Usługi</h4>
-              <ul className="space-y-2 text-slate-300">
-                <li>• Sprzedaż nieruchomości</li>
-                <li>• Wynajem nieruchomości</li>
-                <li>• Doradztwo inwestycyjne</li>
-                <li>• Pożyczki (współpraca z Notus)</li>
-              </ul>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Kontakt</h4>
-              <ul className="space-y-2 text-slate-300">
-                <li>📞 +48 123 456 789</li>
-                <li>✉️ biuro@ktsp.pl</li>
-                <li>📍 Kalisz, ul. Przykładowa 123</li>
-                <li>🕒 Pon-Pt: 8:00-18:00</li>
-              </ul>
-            </div>
-          </div>
-          <div className="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
-            <p>&copy; 2024 KTSP. Wszystkie prawa zastrzeżone.</p>
-          </div>
-        </div>
-      </footer>
+             {/* Footer */}
+       <footer className="bg-slate-800 text-white py-12">
+         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+             <div>
+               <h3 className="text-2xl font-bold mb-4">
+                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
+                   KTSP
+                 </span>
+               </h3>
+               <p className="text-slate-300">
+                 Profesjonalne biuro nieruchomości w Kaliszu.
+                 Oferujemy kompleksowe usługi w zakresie sprzedaży, wynajmu i doradztwa finansowego.
+               </p>
+             </div>
+             <div>
+               <h4 className="text-lg font-semibold mb-4">Usługi</h4>
+               <ul className="space-y-2 text-slate-300">
+                 <li>• Sprzedaż nieruchomości</li>
+                 <li>• Wynajem nieruchomości</li>
+                 <li>• Doradztwo inwestycyjne</li>
+                 <li>• Pożyczki (współpraca z Notus)</li>
+               </ul>
+             </div>
+             <div>
+               <h4 className="text-lg font-semibold mb-4">Kontakt nieruchomości</h4>
+               <ul className="space-y-2 text-slate-300">
+                 <li>📞 +48 502 187 414</li>
+                 <li>✉️ michal.czarnek@lokale.pl</li>
+                 <li>📍 Kalisz, ul. Dobrzecka 95</li>
+                 <li>🕒 Pon-Pt: 8:00-16:00</li>
+               </ul>
+             </div>
+             <div>
+               <h4 className="text-lg font-semibold mb-4">Kontakt pożyczki</h4>
+               <ul className="space-y-2 text-slate-300">
+               <li>📞 +48 502 187 414</li>
+                 <li>✉️ halina.bolgudarna@lokale.pl</li>
+                 <li>📍 Kalisz, ul. Dobrzecka 95</li>
+                 <li>🕒 Pon-Pt: 8:00-16:00</li>
+               </ul>
+             </div>
+           </div>
+           <div className="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
+             <p>&copy; 2025 KTSP. Wszystkie prawa zastrzeżone.</p>
+           </div>
+         </div>
+       </footer>
     </div>
   );
 } 

@@ -191,7 +191,7 @@ export default function KTSPContact() {
               <h2 className="text-2xl font-bold text-slate-800 mb-6 text-center group-hover:text-blue-600 transition-colors duration-300">Znajdź nas</h2>
               <div className="relative h-80 rounded-xl overflow-hidden">
                 <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2443.5!2d18.0911!3d51.7619!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471a34b0b0b0b0b0%3A0xb0b0b0b0b0b0b0b0!2sKTSP!5e0!3m2!1spl!2spl!4v1234567890"
+             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6593.034250457915!2d18.061844353850415!3d51.75868259659627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471acf601419d1ab%3A0x46e8b0babd56abcf!2sKTSP%20Sp.%20z%20o.o.%20Biuro%20nieruchomo%C5%9Bci%2C%20Biura%20i%20Magazyny%20na%20wynajem!5e0!3m2!1spl!2spl!4v1754094606482!5m2!1spl!2spl"
                   width="100%"
                   height="100%"
                   style={{ border: 0 }}
@@ -209,7 +209,7 @@ export default function KTSPContact() {
       {/* Footer */}
       <footer className="bg-slate-800 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <h3 className="text-2xl font-bold mb-4">
                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
@@ -231,17 +231,26 @@ export default function KTSPContact() {
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-4">Kontakt</h4>
+              <h4 className="text-lg font-semibold mb-4">Kontakt nieruchomości</h4>
               <ul className="space-y-2 text-slate-300">
-                <li>📞 +48 123 456 789</li>
-                <li>✉️ biuro@ktsp.pl</li>
-                <li>📍 Kalisz, ul. Przykładowa 123</li>
-                <li>🕒 Pon-Pt: 8:00-18:00</li>
+                <li>📞 +48 502 187 414</li>
+                <li>✉️ michal.czarnek@lokale.pl</li>
+                <li>📍 Kalisz, ul. Dobrzecka 95</li>
+                <li>🕒 Pon-Pt: 8:00-16:00</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Kontakt pożyczki</h4>
+              <ul className="space-y-2 text-slate-300">
+             <li>📞 +48 502 187 414</li>
+                 <li>✉️ halina.bolgudarna@lokale.pl</li>
+                 <li>📍 Kalisz, ul. Dobrzecka 95</li>
+                 <li>🕒 Pon-Pt: 8:00-16:00</li>
               </ul>
             </div>
           </div>
           <div className="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
-            <p>&copy; 2024 KTSP. Wszystkie prawa zastrzeżone.</p>
+            <p>&copy; 2025 KTSP. Wszystkie prawa zastrzeżone.</p>
           </div>
         </div>
       </footer>

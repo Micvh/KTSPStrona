@@ -414,7 +414,7 @@ export default function KTSPHome() {
       {/* Footer */}
       <footer className="bg-slate-800 text-white py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <h3 className="text-2xl font-bold mb-4">
                 <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent">
@@ -436,17 +436,26 @@ export default function KTSPHome() {
               </ul>
             </div>
             <div>
-              <h4 className="text-lg font-semibold mb-4">Kontakt</h4>
+              <h4 className="text-lg font-semibold mb-4">Kontakt nieruchomości</h4>
               <ul className="space-y-2 text-slate-300">
-                <li>📞 +48 123 456 789</li>
-                <li>✉️ biuro@ktsp.pl</li>
-                <li>📍 Kalisz, ul. Przykładowa 123</li>
-                <li>🕒 Pon-Pt: 8:00-18:00</li>
+                <li>📞 +48 502 187 414</li>
+                <li>✉️ michal.czarnek@lokale.pl</li>
+                <li>📍 Kalisz, ul. Dobrzecka 95</li>
+                <li>🕒 Pon-Pt: 8:00-16:00</li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-lg font-semibold mb-4">Kontakt pożyczki</h4>
+              <ul className="space-y-2 text-slate-300">
+       <li>📞 +48 502 187 414</li>
+                 <li>✉️ halina.bolgudarna@lokale.pl</li>
+                 <li>📍 Kalisz, ul. Dobrzecka 95</li>
+                 <li>🕒 Pon-Pt: 8:00-16:00</li>
               </ul>
             </div>
           </div>
           <div className="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
-            <p>&copy; 2024 KTSP. Wszystkie prawa zastrzeżone.</p>
+            <p>&copy; 2025 KTSP. Wszystkie prawa zastrzeżone.</p>
           </div>
         </div>
       </footer>
