@@ -103,9 +103,9 @@ export default function KtspOferty() {
 
       {/* Main Content */}
                   <div className="w-full px-4 md:px-6 lg:px-8 xl:px-32 2xl:px-48 py-8 md:py-10 lg:py-12 xl:py-16">
-        <div className="w-full flex flex-col lg:flex-row gap-8">
+        <div className="w-full flex flex-col lg:flex-row gap-8 lg:items-start lg:min-h-screen">
           {/* Left Column */}
-          <div className="flex-1 space-y-8">
+          <div className="flex-1 space-y-8 lg:mr-4 lg:ml-8">
             {/* Hero Section */}
             <div className="space-y-2 md:space-y-4">
               <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
@@ -216,7 +216,7 @@ export default function KtspOferty() {
           </div>
 
           {/* Right Column */}
-          <div className="lg:w-96 space-y-6">
+          <div className="lg:w-80 space-y-6 lg:sticky lg:top-8 lg:self-start">
             {/* Price Card */}
             <div className="bg-gradient-to-br from-blue-600 to-indigo-700 rounded-2xl p-6 text-white shadow-xl">
               <div className="text-sm text-blue-100 mb-2">CENA</div>
@@ -290,6 +290,30 @@ export default function KtspOferty() {
                 </div>
               </div>
             </div>
+
+            {/* Additional Info Card */}
+            <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 border border-white/50 shadow-lg">
+              <h2 className="text-xl font-semibold text-slate-800 mb-4 flex items-center gap-2">
+                <div className="w-1 h-6 bg-orange-500 rounded-full"></div>
+                DODATKOWE INFO
+              </h2>
+              <div className="space-y-3">
+           
+                <div className="flex justify-between items-center py-2 border-b border-slate-100">
+                  <span className="text-slate-600">Data dodania</span>
+                  <span className="font-semibold text-slate-800">15.01.2025</span>
+                </div>
+                <div className="flex justify-between items-center py-2 border-b border-slate-100">
+                  <span className="text-slate-600">Ostatnia aktualizacja</span>
+                  <span className="font-semibold text-slate-800">20.01.2025</span>
+                </div>
+                <div className="flex justify-between items-center py-2">
+                  <span className="text-slate-600">ID oferty</span>
+                  <span className="font-semibold text-slate-800">#KTSP-001</span>
+                </div>
+              </div>
+            </div>
+
 
           
           </div>
