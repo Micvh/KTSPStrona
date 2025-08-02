@@ -143,20 +143,20 @@ export default function KTSPHome() {
             <Link to="/main" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 cursor-pointer">
               KTSP
             </Link>
-            <div className="flex space-x-6">
-              <Link to="/main" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+            <div className="flex space-x-2 sm:space-x-2">
+              <Link to="/main" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 STRONA GŁÓWNA
               </Link>
-              <Link to="/oferty" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/oferty" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 OFERTY
               </Link>
-              <Link to="/o-nas" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/o-nas" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 O NAS
               </Link>
-              <Link to="/kontakt" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/kontakt" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 KONTAKT
               </Link>
-              <Link to="/pozyczki" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/pozyczki" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 POŻYCZKI
               </Link>
             </div>
@@ -209,11 +209,11 @@ export default function KTSPHome() {
                    transform: `translate(${mousePosition.x * 0.1}px, ${mousePosition.y * 0.1}px)`
                  }}
                >
-                 <h1 className="text-6xl font-bold text-slate-800 mb-6 animate-fade-in">
+                 <h1 className="text-4xl md:text-6xl font-bold text-slate-800 mb-6 animate-fade-in">
                    Witamy w
                    <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent "> KTSP</span>
                  </h1>
-                 <p className="text-2xl text-slate-600 max-w-3xl mx-auto mb-8 animate-slide-up">
+                 <p className="text-lg md:text-2xl text-slate-600 max-w-3xl mx-auto mb-8 animate-slide-up">
                    Profesjonalne biuro nieruchomości w Kaliszu. 
                    Pomagamy znaleźć wymarzone miejsce do życia i inwestowania.
                  </p>
@@ -228,28 +228,28 @@ export default function KTSPHome() {
                  {/* Stats Section */}
                  <div ref={statsRef} className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-12">
                    <div className={`text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '0ms' }}>
-                     <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
+                     <div className="text-2xl md:text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
                        {animatedValues.clients}+
                      </div>
-                     <div className="text-slate-600">Zadowolonych klientów</div>
+                     <div className="text-sm md:text-base text-slate-600">Zadowolonych klientów</div>
                    </div>
                    <div className={`text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '200ms' }}>
-                     <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
+                     <div className="text-2xl md:text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
                        {animatedValues.properties}+
                      </div>
-                     <div className="text-slate-600">Sprzedanych nieruchomości</div>
+                     <div className="text-sm md:text-base text-slate-600">Sprzedanych nieruchomości</div>
                    </div>
                    <div className={`text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '400ms' }}>
-                     <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
+                     <div className="text-2xl md:text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
                        {animatedValues.years}+
                      </div>
-                     <div className="text-slate-600">Lat doświadczenia</div>
+                     <div className="text-sm md:text-base text-slate-600">Lat doświadczenia</div>
                    </div>
                    <div className={`text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '600ms' }}>
-                     <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
+                     <div className="text-2xl md:text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
                        {animatedValues.support}/7
                      </div>
-                     <div className="text-slate-600">Wsparcie klienta</div>
+                     <div className="text-sm md:text-base text-slate-600">Wsparcie klienta</div>
                    </div>
                  </div>
 
@@ -257,22 +257,22 @@ export default function KTSPHome() {
                  <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-8 md:mb-12 mt-8 md:mt-12">
                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-white/90 group">
                      <div className="text-center text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🏠</div>
-                     <h3 className="text-xl font-semibold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">Sprzedaż i Wynajem</h3>
-                     <p className="text-slate-600 group-hover:text-slate-700 transition-colors duration-300">
+                     <h3 className="text-lg md:text-xl font-semibold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">Sprzedaż i Wynajem</h3>
+                     <p className="text-sm md:text-base text-slate-600 group-hover:text-slate-700 transition-colors duration-300">
                        Oferujemy sprzedaż oraz wynajem mieszkań, domów i działek na terenie całej Polski.
                      </p>
                    </div>
                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-white/90 group">
                      <div className="text-center text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">🔑</div>
-                     <h3 className="text-xl font-semibold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">Kompleksowa Obsługa</h3>
-                     <p className="text-slate-600 group-hover:text-slate-700 transition-colors duration-300">
+                     <h3 className="text-lg md:text-xl font-semibold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">Kompleksowa Obsługa</h3>
+                     <p className="text-sm md:text-base text-slate-600 group-hover:text-slate-700 transition-colors duration-300">
                        Od wyceny nieruchomości po podpisanie umowy - jesteśmy z Tobą na każdym kroku.
                      </p>
                    </div>
                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-white/90 group">
                      <div className="text-center text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">📊</div>
-                     <h3 className="text-xl font-semibold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">Doradztwo Inwestycyjne</h3>
-                     <p className="text-slate-600 group-hover:text-slate-700 transition-colors duration-300">
+                     <h3 className="text-lg md:text-xl font-semibold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">Doradztwo Inwestycyjne</h3>
+                     <p className="text-sm md:text-base text-slate-600 group-hover:text-slate-700 transition-colors duration-300">
                        Wsparcie w zakupie nieruchomości inwestycyjnych i zarządzaniu majątkiem.
                      </p>
                    </div>
@@ -372,37 +372,37 @@ export default function KTSPHome() {
                Jesteśmy tutaj, aby pomóc Ci znaleźć wymarzone miejsce
              </p>
              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-              <div className="flex items-center justify-center gap-3">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
                   <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
                   </svg>
                 </div>
-                <div className="text-left">
-                  <div className="font-semibold text-slate-800">Telefon</div>
+                <div>
+                  <div className="font-semibold text-slate-800 mb-1">Telefon</div>
                   <div className="text-slate-600">+48 502 187 414</div>
                 </div>
               </div>
-              <div className="flex items-center justify-center gap-3">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
                   <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
                     <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
                     <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
                   </svg>
                 </div>
-                <div className="text-left">
-                  <div className="font-semibold text-slate-800">Email</div>
+                <div>
+                  <div className="font-semibold text-slate-800 mb-1">Email</div>
                   <div className="text-slate-600">michal.czarnek@lokale.pl</div>
                 </div>
               </div>
-              <div className="flex items-center justify-center gap-3">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
+              <div className="flex items-start gap-4">
+                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
                   <svg className="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                   </svg>
                 </div>
-                <div className="text-left">
-                  <div className="font-semibold text-slate-800">Adres</div>
+                <div>
+                  <div className="font-semibold text-slate-800 mb-1">Adres</div>
                   <div className="text-slate-600">ul. Dobrzecka 95, Kalisz</div>
                 </div>
               </div>

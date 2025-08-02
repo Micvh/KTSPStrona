@@ -37,20 +37,20 @@ export default function KtspOferty() {
             <Link to="/main" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 cursor-pointer">
               KTSP
             </Link>
-            <div className="flex space-x-6">
-              <Link to="/main" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+            <div className="flex space-x-2 sm:space-x-2">
+              <Link to="/main" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 STRONA GŁÓWNA
               </Link>
-              <Link to="/oferty" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/oferty" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 OFERTY
               </Link>
-              <Link to="/o-nas" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/o-nas" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 O NAS
               </Link>
-              <Link to="/kontakt" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/kontakt" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 KONTAKT
               </Link>
-              <Link to="/pozyczki" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/pozyczki" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 POŻYCZKI
               </Link>
             </div>

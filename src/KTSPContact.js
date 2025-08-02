@@ -30,20 +30,20 @@ export default function KTSPContact() {
             <Link to="/main" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 cursor-pointer">
               KTSP
             </Link>
-            <div className="flex space-x-6">
-              <Link to="/main" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+            <div className="flex space-x-2 sm:space-x-2">
+              <Link to="/main" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 STRONA GŁÓWNA
               </Link>
-              <Link to="/oferty" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/oferty" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 OFERTY
               </Link>
-              <Link to="/o-nas" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/o-nas" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 O NAS
               </Link>
-              <Link to="/kontakt" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/kontakt" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 KONTAKT
               </Link>
-              <Link to="/pozyczki" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/pozyczki" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 POŻYCZKI
               </Link>
             </div>
@@ -95,11 +95,11 @@ export default function KTSPContact() {
             transform: `translate(${mousePosition.x * 0.05}px, ${mousePosition.y * 0.05}px)`
           }}
         >
-          <h1 className={`text-5xl font-bold text-slate-800 mb-6 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <h1 className={`text-4xl md:text-5xl font-bold text-slate-800 mb-6 transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             Poznaj nas bliżej
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent "> i skontaktuj się</span>
           </h1>
-          <p className={`text-xl text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
+          <p className={`text-lg md:text-xl text-slate-600 max-w-2xl mx-auto transition-all duration-1000 delay-300 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`}>
             Dowiedz się więcej o naszym biurze, sprawdź dane kontaktowe 
             i znajdź odpowiedzi na najczęściej zadawane pytania.
           </p>

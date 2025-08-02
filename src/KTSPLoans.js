@@ -124,20 +124,20 @@ export default function KTSPLoans() {
             <Link to="/" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 cursor-pointer">
               KTSP
             </Link>
-            <div className="flex space-x-6">
-              <Link to="/" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+            <div className="flex space-x-2 sm:space-x-2">
+              <Link to="/" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 STRONA GŁÓWNA
               </Link>
-              <Link to="/oferty" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/oferty" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 OFERTY
               </Link>
-              <Link to="/o-nas" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/o-nas" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 O NAS
               </Link>
-              <Link to="/kontakt" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/kontakt" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 KONTAKT
               </Link>
-              <Link to="/pozyczki" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/pozyczki" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 POŻYCZKI
               </Link>
             </div>
@@ -192,11 +192,11 @@ export default function KTSPLoans() {
               transform: `translate(${mousePosition.x * 0.1}px, ${mousePosition.y * 0.1}px)`
             }}
           >
-            <h1 className="text-6xl font-bold text-slate-800 mb-6 animate-fade-in">
+            <h1 className="text-4xl md:text-6xl font-bold text-slate-800 mb-6 animate-fade-in">
               Pożyczki
               <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent "> Notus</span>
             </h1>
-                         <p className="text-2xl text-slate-600 max-w-3xl mx-auto mb-8 animate-slide-up">
+                         <p className="text-lg md:text-2xl text-slate-600 max-w-3xl mx-auto mb-8 animate-slide-up">
                Rozpoczynamy współpracę z firmą Notus, aby oferować naszym klientom nowe możliwości finansowe. 
                Jesteśmy dumni z tego, że możemy poszerzyć nasze usługi o pożyczki.
              </p>
@@ -213,35 +213,35 @@ export default function KTSPLoans() {
           {/* Stats Section */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-8 md:mb-12">
             <div className={`text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '0ms' }}>
-              <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
+              <div className="text-2xl md:text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
                 {animatedValues.clients}+
               </div>
-              <div className="text-slate-600">Zadowolonych klientów</div>
+              <div className="text-sm md:text-base text-slate-600">Zadowolonych klientów</div>
             </div>
             <div className={`text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '200ms' }}>
-              <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
+              <div className="text-2xl md:text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
                 {animatedValues.loans}+
               </div>
-              <div className="text-slate-600">Udzielonych pożyczek</div>
+              <div className="text-sm md:text-base text-slate-600">Udzielonych pożyczek</div>
             </div>
                          <div className={`text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '400ms' }}>
-               <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
+               <div className="text-2xl md:text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
                  {animatedValues.years}+
                </div>
-               <div className="text-slate-600">Rok współpracy z Notus</div>
+               <div className="text-sm md:text-base text-slate-600">Rok współpracy z Notus</div>
              </div>
             <div className={`text-center transform transition-all duration-1000 ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '600ms' }}>
-              <div className="text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
+              <div className="text-2xl md:text-4xl font-bold text-blue-600 mb-2 transition-all duration-300 hover:scale-110">
                 {animatedValues.satisfaction}%
               </div>
-              <div className="text-slate-600">Satysfakcji klientów</div>
+              <div className="text-sm md:text-base text-slate-600">Satysfakcji klientów</div>
             </div>
           </div>
         </div>
 
         {/* Loan Offers Section */}
         <div className="px-4 md:px-6 lg:px-8 xl:px-32 2xl:px-48 mb-16">
-          <h2 className="text-4xl font-bold text-slate-800 mb-12 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-12 text-center">
             Nasze oferty pożyczek
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -254,10 +254,10 @@ export default function KTSPLoans() {
                 <div className="text-center text-5xl mb-6 group-hover:scale-110 transition-transform duration-300">
                   {offer.icon}
                 </div>
-                <h3 className="text-2xl font-bold text-slate-800 mb-4 text-center group-hover:text-blue-600 transition-colors duration-300">
+                <h3 className="text-xl md:text-2xl font-bold text-slate-800 mb-4 text-center group-hover:text-blue-600 transition-colors duration-300">
                   {offer.title}
                 </h3>
-                <p className="text-slate-600 mb-6 text-center">
+                <p className="text-sm md:text-base text-slate-600 mb-6 text-center">
                   {offer.description}
                 </p>
                 <div className="mb-6 flex-grow flex items-center justify-center">
@@ -286,7 +286,7 @@ export default function KTSPLoans() {
           <div className={`bg-white/80 backdrop-blur-sm rounded-2xl p-12 border border-white/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1400ms' }}>
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
-                <h2 className="text-4xl font-bold text-slate-800 mb-6 group-hover:text-blue-600 transition-colors duration-300">
+                <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6 group-hover:text-blue-600 transition-colors duration-300">
                   Twój doradca finansowy
                 </h2>
                 <div className="mb-6">

@@ -7,212 +7,229 @@ import nieruchomosc from "./nieruchomosc.jpg";
 const properties = [
   {
     id: 1,
-    title: "Przykładowa nieruchomość 1",
-    location: "Kalisz, Centrum",
-    price: "900,000 zł",
-    area: "80 m²",
-    rooms: "4",
-    type: "Mieszkanie",
-    images: [zdjeciemainJPG, nieruchomosc, zdjeciemainPNG],
-    featured: true,
-    pricePerM2: 11250,
-    floor: "2",
-    buildingType: "Blok",
-    yearBuilt: 2010,
-    condition: "Gotowe do zamieszkania",
-    transactionType: "Sprzedaż"
-  },
-  {
-    id: 2,
-    title: "Nowoczesne mieszkanie",
-    location: "Warszawa, Mokotów",
-    price: "1,200,000 zł",
-    area: "65 m²",
+    title: "Luksusowy apartament w centrum",
+    location: "Warszawa, Śródmieście",
+    price: "2,800,000 zł",
+    area: "85 m²",
     rooms: "3",
-    type: "Mieszkanie",
-    images: [zdjeciemainPNG, zdjeciemainJPG, nieruchomosc],
-    featured: false,
-    pricePerM2: 18462,
-    floor: "5",
-    buildingType: "Apartamentowiec",
-    yearBuilt: 2020,
-    condition: "Luksusowe wykończenie",
-    transactionType: "Sprzedaż"
-  },
-  {
-    id: 3,
-    title: "Dom z ogrodem",
-    location: "Poznań, Jeżyce",
-    price: "2,500,000 zł",
-    area: "120 m²",
-    rooms: "5",
-    type: "Dom",
-    images: [nieruchomosc, zdjeciemainJPG, zdjeciemainPNG],
-    featured: true,
-    pricePerM2: 20833,
-    floor: "Parter",
-    buildingType: "Dom wolnostojący",
-    yearBuilt: 2015,
-    condition: "Po remoncie",
-    transactionType: "Sprzedaż"
-  },
-  {
-    id: 4,
-    title: "Apartament premium",
-    location: "Kraków, Stare Miasto",
-    price: "3,800,000 zł",
-    area: "95 m²",
-    rooms: "4",
-    type: "Apartament",
-    images: [zdjeciemainJPG, nieruchomosc, zdjeciemainPNG],
-    featured: false,
-    pricePerM2: 40000,
-    floor: "3",
-    buildingType: "Kamienica",
-    yearBuilt: 1900,
-    condition: "Luksusowe wykończenie",
-    transactionType: "Sprzedaż"
-  },
-  {
-    id: 5,
-    title: "Mieszkanie inwestycyjne",
-    location: "Wrocław, Centrum",
-    price: "750,000 zł",
-    area: "45 m²",
-    rooms: "2",
-    type: "Mieszkanie",
-    images: [zdjeciemainPNG, zdjeciemainJPG, nieruchomosc],
-    featured: false,
-    pricePerM2: 16667,
-    floor: "1",
-    buildingType: "Blok",
-    yearBuilt: 2005,
-    condition: "Do wykończenia",
-    transactionType: "Sprzedaż"
-  },
-  {
-    id: 6,
-    title: "Dom jednorodzinny",
-    location: "Gdańsk, Oliwa",
-    price: "4,200,000 zł",
-    area: "180 m²",
-    rooms: "6",
-    type: "Dom",
-    images: [nieruchomosc, zdjeciemainJPG, zdjeciemainPNG],
-    featured: true,
-    pricePerM2: 23333,
-    floor: "Parter",
-    buildingType: "Dom wolnostojący",
-    yearBuilt: 2018,
-    condition: "Gotowe do zamieszkania",
-    transactionType: "Sprzedaż"
-  },
-  {
-    id: 7,
-    title: "Luksusowy apartament nad morzem",
-    location: "Sopot, Centrum",
-    price: "5,500,000 zł",
-    area: "140 m²",
-    rooms: "5",
     type: "Apartament",
     images: [zdjeciemainJPG, nieruchomosc, zdjeciemainPNG],
     featured: true,
-    pricePerM2: 39286,
-    floor: "8",
+    pricePerM2: 32941,
+    floor: "12",
     buildingType: "Apartamentowiec",
     yearBuilt: 2022,
     condition: "Luksusowe wykończenie",
     transactionType: "Sprzedaż"
   },
   {
-    id: 8,
-    title: "Mieszkanie do wynajmu",
-    location: "Łódź, Śródmieście",
-    price: "2,500 zł",
-    area: "55 m²",
-    rooms: "3",
-    type: "Mieszkanie",
+    id: 2,
+    title: "Dom rodzinny z ogrodem",
+    location: "Kraków, Krowodrza",
+    price: "1,950,000 zł",
+    area: "140 m²",
+    rooms: "5",
+    type: "Dom",
     images: [zdjeciemainPNG, zdjeciemainJPG, nieruchomosc],
     featured: false,
-    pricePerM2: 45,
-    floor: "4",
-    buildingType: "Blok",
-    yearBuilt: 1990,
-    condition: "Do remontu",
-    transactionType: "Wynajem"
-  },
-  {
-    id: 9,
-    title: "Dom szeregowy z garażem",
-    location: "Katowice, Brynów",
-    price: "1,800,000 zł",
-    area: "110 m²",
-    rooms: "4",
-    type: "Dom",
-    images: [nieruchomosc, zdjeciemainJPG, zdjeciemainPNG],
-    featured: false,
-    pricePerM2: 16364,
+    pricePerM2: 13929,
     floor: "Parter",
-    buildingType: "Dom szeregowy",
-    yearBuilt: 2012,
+    buildingType: "Dom wolnostojący",
+    yearBuilt: 2019,
     condition: "Gotowe do zamieszkania",
     transactionType: "Sprzedaż"
   },
   {
-    id: 10,
-    title: "Nieruchomość na przetarg",
-    location: "Bydgoszcz, Stare Miasto",
-    price: "600,000 zł",
-    area: "70 m²",
-    rooms: "3",
-    type: "Lokal",
-    images: [zdjeciemainJPG, nieruchomosc, zdjeciemainPNG],
+    id: 3,
+    title: "Mieszkanie inwestycyjne",
+    location: "Wrocław, Krzyki",
+    price: "680,000 zł",
+    area: "42 m²",
+    rooms: "2",
+    type: "Mieszkanie",
+    images: [nieruchomosc, zdjeciemainJPG, zdjeciemainPNG],
     featured: true,
-    pricePerM2: 8571,
-    floor: "1",
-    buildingType: "Kamienica",
-    yearBuilt: 1920,
-    condition: "Do remontu",
-    transactionType: "Przetarg"
+    pricePerM2: 16190,
+    floor: "3",
+    buildingType: "Blok",
+    yearBuilt: 2015,
+    condition: "Do wykończenia",
+    transactionType: "Sprzedaż"
   },
   {
-    id: 11,
-    title: "Nowoczesne mieszkanie 2+1",
-    location: "Szczecin, Centrum",
-    price: "850,000 zł",
-    area: "48 m²",
-    rooms: "2",
+    id: 4,
+    title: "Kamienica do remontu",
+    location: "Gdańsk, Stare Miasto",
+    price: "1,200,000 zł",
+    area: "180 m²",
+    rooms: "8",
+    type: "Dom",
+    images: [zdjeciemainJPG, nieruchomosc, zdjeciemainPNG],
+    featured: false,
+    pricePerM2: 6667,
+    floor: "Parter",
+    buildingType: "Kamienica",
+    yearBuilt: 1890,
+    condition: "Do remontu",
+    transactionType: "Sprzedaż"
+  },
+  {
+    id: 5,
+    title: "Nowoczesne mieszkanie 3+1",
+    location: "Poznań, Grunwald",
+    price: "1,450,000 zł",
+    area: "78 m²",
+    rooms: "4",
     type: "Mieszkanie",
     images: [zdjeciemainPNG, zdjeciemainJPG, nieruchomosc],
     featured: false,
-    pricePerM2: 17708,
-    floor: "6",
+    pricePerM2: 18590,
+    floor: "7",
     buildingType: "Apartamentowiec",
     yearBuilt: 2021,
     condition: "Gotowe do zamieszkania",
     transactionType: "Sprzedaż"
   },
-      {
-     id: 12,
-     title: "Dom z działką rekreacyjną",
-     location: "Lublin, Czechów",
-     price: "3,200,000 zł",
-     area: "160 m²",
-     rooms: "6",
-     type: "Dom",
-     images: [nieruchomosc, zdjeciemainJPG, zdjeciemainPNG],
-     featured: true,
-     pricePerM2: 20000,
-     floor: "Parter",
-     buildingType: "Dom wolnostojący",
-     yearBuilt: 2016,
-     condition: "Po remoncie",
-     transactionType: "Sprzedaż"
-   }
+  {
+    id: 6,
+    title: "Dom szeregowy z garażem",
+    location: "Łódź, Polesie",
+    price: "1,350,000 zł",
+    area: "120 m²",
+    rooms: "4",
+    type: "Dom",
+    images: [nieruchomosc, zdjeciemainJPG, zdjeciemainPNG],
+    featured: true,
+    pricePerM2: 11250,
+    floor: "Parter",
+    buildingType: "Dom szeregowy",
+    yearBuilt: 2018,
+    condition: "Po remoncie",
+    transactionType: "Sprzedaż"
+  },
+  {
+    id: 7,
+    title: "Mieszkanie do wynajmu",
+    location: "Szczecin, Centrum",
+    price: "3,200 zł",
+    area: "58 m²",
+    rooms: "3",
+    type: "Mieszkanie",
+    images: [zdjeciemainPNG, zdjeciemainJPG, nieruchomosc],
+    featured: false,
+    pricePerM2: 55,
+    floor: "5",
+    buildingType: "Blok",
+    yearBuilt: 2008,
+    condition: "Do remontu",
+    transactionType: "Wynajem"
+  },
+  {
+    id: 8,
+    title: "Lokal komercyjny",
+    location: "Katowice, Śródmieście",
+    price: "2,100,000 zł",
+    area: "150 m²",
+    rooms: "4",
+    type: "Lokal",
+    images: [zdjeciemainJPG, nieruchomosc, zdjeciemainPNG],
+    featured: false,
+    pricePerM2: 14000,
+    floor: "1",
+    buildingType: "Centrum handlowe",
+    yearBuilt: 2010,
+    condition: "Gotowe do użytku",
+    transactionType: "Sprzedaż"
+  },
+  {
+    id: 9,
+    title: "Apartament nad morzem",
+    location: "Sopot, Centrum",
+    price: "4,500,000 zł",
+    area: "95 m²",
+    rooms: "3",
+    type: "Apartament",
+    images: [nieruchomosc, zdjeciemainJPG, zdjeciemainPNG],
+    featured: true,
+    pricePerM2: 47368,
+    floor: "8",
+    buildingType: "Apartamentowiec",
+    yearBuilt: 2023,
+    condition: "Luksusowe wykończenie",
+    transactionType: "Sprzedaż"
+  },
+  {
+    id: 10,
+    title: "Dom z działką rekreacyjną",
+    location: "Bydgoszcz, Fordon",
+    price: "2,800,000 zł",
+    area: "200 m²",
+    rooms: "6",
+    type: "Dom",
+    images: [zdjeciemainPNG, zdjeciemainJPG, nieruchomosc],
+    featured: false,
+    pricePerM2: 14000,
+    floor: "Parter",
+    buildingType: "Dom wolnostojący",
+    yearBuilt: 2020,
+    condition: "Gotowe do zamieszkania",
+    transactionType: "Sprzedaż"
+  },
+  {
+    id: 11,
+    title: "Mieszkanie na przetarg",
+    location: "Lublin, Śródmieście",
+    price: "420,000 zł",
+    area: "65 m²",
+    rooms: "3",
+    type: "Mieszkanie",
+    images: [zdjeciemainJPG, nieruchomosc, zdjeciemainPNG],
+    featured: false,
+    pricePerM2: 6462,
+    floor: "2",
+    buildingType: "Blok",
+    yearBuilt: 1985,
+    condition: "Do remontu",
+    transactionType: "Przetarg"
+  },
+  {
+    id: 12,
+    title: "Luksusowy dom z basenem",
+    location: "Kalisz, Centrum",
+    price: "3,600,000 zł",
+    area: "280 m²",
+    rooms: "8",
+    type: "Dom",
+    images: [nieruchomosc, zdjeciemainJPG, zdjeciemainPNG],
+    featured: true,
+    pricePerM2: 12857,
+    floor: "Parter",
+    buildingType: "Dom wolnostojący",
+    yearBuilt: 2022,
+    condition: "Luksusowe wykończenie",
+    transactionType: "Sprzedaż"
+  },
+  {
+    id: 13,
+    title: "Mieszkanie w zabytkowej kamienicy",
+    location: "Toruń, Stare Miasto",
+    price: "1,150,000 zł",
+    area: "75 m²",
+    rooms: "3",
+    type: "Mieszkanie",
+    images: [zdjeciemainJPG, nieruchomosc, zdjeciemainPNG],
+    featured: false,
+    pricePerM2: 15333,
+    floor: "2",
+    buildingType: "Kamienica",
+    yearBuilt: 1925,
+    condition: "Po remoncie",
+    transactionType: "Sprzedaż"
+  }
 ];
 
 const propertyTypes = ["Wszystkie", "Mieszkanie", "Dom", "Apartament", "Lokal"];
-const cities = ["Wszystkie", "Kalisz", "Warszawa", "Poznań", "Kraków", "Wrocław", "Gdańsk", "Sopot", "Łódź", "Katowice", "Bydgoszcz", "Szczecin", "Lublin"];
+const cities = ["Wszystkie", "Warszawa", "Kraków", "Wrocław", "Gdańsk", "Poznań", "Łódź", "Szczecin", "Katowice", "Sopot", "Bydgoszcz", "Lublin", "Kalisz", "Toruń"];
 
 export default function KTSPOffers() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -263,6 +280,10 @@ export default function KTSPOffers() {
     });
   };
 
+  console.log('=== DEBUG INFO ===');
+  console.log('Total properties in array:', properties.length);
+  console.log('All properties:', properties.map(p => ({ id: p.id, title: p.title, location: p.location })));
+  
   const filteredProperties = properties.filter(property => {
     const matchesSearch = property.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
                          property.location.toLowerCase().includes(searchTerm.toLowerCase());
@@ -352,20 +373,20 @@ export default function KTSPOffers() {
             <Link to="/main" className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 cursor-pointer">
               KTSP
             </Link>
-            <div className="flex space-x-6">
-              <Link to="/main" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+            <div className="flex space-x-2 sm:space-x-2">
+              <Link to="/main" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 STRONA GŁÓWNA
               </Link>
-              <Link to="/oferty" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/oferty" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 OFERTY
               </Link>
-              <Link to="/o-nas" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/o-nas" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 O NAS
               </Link>
-              <Link to="/kontakt" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/kontakt" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 KONTAKT
               </Link>
-              <Link to="/pozyczki" className="text-slate-600 hover:text-blue-600 transition-colors duration-300">
+              <Link to="/pozyczki" className="text-xs sm:text-sm text-slate-600 hover:text-blue-600 transition-colors duration-300">
                 POŻYCZKI
               </Link>
             </div>
@@ -400,11 +421,11 @@ export default function KTSPOffers() {
       {/* Hero Section */}
       <div className="w-full px-4 md:px-6 lg:px-8 xl:px-32 2xl:px-48 py-8 md:py-10 lg:py-12 xl:py-16">
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-bold text-slate-800 mb-4">
+          <h1 className="text-4xl md:text-5xl font-bold text-slate-800 mb-4">
             Znajdź swoje wymarzone
             <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> mieszkanie</span>
           </h1>
-          <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+          <p className="text-lg md:text-xl text-slate-600 max-w-2xl mx-auto">
             Przeglądaj tysiące ofert nieruchomości w całej Polsce. 
             Znajdź idealne miejsce dla siebie i swojej rodziny.
           </p>
@@ -468,9 +489,9 @@ export default function KTSPOffers() {
                                 {/* Price Range and Buttons Row */}
             <div className="mb-4">
               <label className="block text-sm font-medium text-slate-700 mb-2">Zakres cenowy (zł)</label>
-              <div className={`flex gap-4 items-end transition-all duration-300 ${showAdvancedFilters ? 'w-full' : 'w-full'}`}>
+              <div className={`flex flex-col md:flex-row gap-4 items-end transition-all duration-300 ${showAdvancedFilters ? 'w-full' : 'w-full'}`}>
                 {/* Price Range - Dynamic width */}
-                <div className={`transition-all duration-300 ${showAdvancedFilters ? 'w-full' : 'w-2/3'}`}>
+                <div className={`transition-all duration-300 ${showAdvancedFilters ? 'w-full' : 'w-full md:w-2/3'}`}>
                   <div className="flex gap-2 items-center">
                     <input
                       type="number"
@@ -496,14 +517,14 @@ export default function KTSPOffers() {
                 
                 {/* Buttons - Only visible when advanced filters are hidden */}
                 {!showAdvancedFilters && (
-                  <div className="flex gap-4 w-1/3 justify-end">
+                  <div className="flex gap-4 w-full md:w-1/3 justify-end">
                     <button 
                       onClick={clearFilters}
-                      className="px-10 py-3 border border-slate-300 text-slate-700 rounded-xl hover:bg-slate-50 transition-all duration-300 font-medium flex-1"
+                      className="px-6 py-2 border border-slate-300 text-slate-700 rounded-xl hover:bg-slate-50 transition-all duration-300 font-medium flex-1"
                     >
                       Wyczyść filtry
                     </button>
-                    <button className="px-12 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl flex-1">
+                    <button className="px-8 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl flex-1">
                       Wyszukaj
                     </button>
                   </div>
@@ -693,30 +714,32 @@ export default function KTSPOffers() {
 
                        {/* Search Buttons and Hide Filters Button - Only visible when advanced filters are shown */}
             {showAdvancedFilters && (
-              <div className="flex gap-4 justify-between items-center mt-4">
-                <button
-                  onClick={() => setShowAdvancedFilters(false)}
-                  className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300"
-                >
-                  <svg 
-                    className="w-5 h-5 transition-transform duration-300 rotate-180" 
-                    fill="none" 
-                    stroke="currentColor" 
-                    viewBox="0 0 24 24"
-                  >
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                  Ukryj więcej filtrów
-                </button>
-                <div className="flex gap-4">
+              <div className="flex flex-col gap-4 mt-4">
+                <div className="flex gap-4 justify-end">
                   <button 
                     onClick={clearFilters}
-                    className="px-8 py-3 border border-slate-300 text-slate-700 rounded-xl hover:bg-slate-50 transition-all duration-300 font-medium"
+                    className="px-6 py-2 border border-slate-300 text-slate-700 rounded-xl hover:bg-slate-50 transition-all duration-300 font-medium flex-1"
                   >
                     Wyczyść filtry
                   </button>
-                  <button className="px-10 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl">
+                  <button className="px-8 py-2 bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl flex-1">
                     Wyszukaj
+                  </button>
+                </div>
+                <div className="flex justify-center">
+                  <button
+                    onClick={() => setShowAdvancedFilters(false)}
+                    className="flex items-center gap-2 text-blue-600 hover:text-blue-700 font-medium transition-colors duration-300"
+                  >
+                    <svg 
+                      className="w-5 h-5 transition-transform duration-300 rotate-180" 
+                      fill="none" 
+                      stroke="currentColor" 
+                      viewBox="0 0 24 24"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                    </svg>
+                    Ukryj więcej filtrów
                   </button>
                 </div>
               </div>
@@ -725,7 +748,7 @@ export default function KTSPOffers() {
 
         {/* Results Count */}
         <div className="flex justify-between items-center mb-8">
-          <h2 className="text-2xl font-semibold text-slate-800">
+          <h2 className="text-xl md:text-2xl font-semibold text-slate-800">
             Znaleziono {sortedProperties.length} ofert
           </h2>
           <div className="text-slate-600">
@@ -745,8 +768,8 @@ export default function KTSPOffers() {
 
         {/* Properties Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {sortedProperties.map(property => (
-            <div key={property.id} className="bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+          {sortedProperties.map((property, index) => (
+            <div key={`${property.id}-${index}`} className="bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
               {/* Property Image Slider */}
               <div className="relative h-64 overflow-hidden">
                 <div 
