@@ -509,11 +509,11 @@ export default function KTSPLoans() {
                 <li>• Pożyczki (współpraca z Notus)</li>
               </ul>
             </div>
-            <div>
+                        <div>
               <h4 className="text-lg font-semibold mb-4">Kontakt nieruchomości</h4>
               <ul className="space-y-2 text-slate-300">
-                <li>📞 +48 502 187 414</li>
-                <li>✉️ michal.czarnek@lokale.pl</li>
+                <li><a href="tel:+48502187414" className="hover:text-blue-400 transition-colors duration-300 cursor-pointer">📞 +48 502 187 414</a></li>
+                <li><a href="mailto:michal.czarnek@lokale.pl" className="hover:text-blue-400 transition-colors duration-300 cursor-pointer">✉️ michal.czarnek@lokale.pl</a></li>
                 <li>📍 Kalisz, ul. Dobrzecka 95</li>
                 <li>🕒 Pon-Pt: 8:00-16:00</li>
               </ul>
@@ -521,14 +521,15 @@ export default function KTSPLoans() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Kontakt pożyczki</h4>
               <ul className="space-y-2 text-slate-300">
-     <li>📞 +48 502 187 414</li>
-                 <li>✉️ halina.bolgudarna@lokale.pl</li>
-                 <li>📍 Kalisz, ul. Dobrzecka 95</li>
-                 <li>🕒 Pon-Pt: 8:00-16:00</li>
+                <li><a href="tel:+48502187414" className="hover:text-blue-400 transition-colors duration-300 cursor-pointer">📞 +48 502 187 414</a></li>
+                <li><a href="mailto:halina.bolgudarna@lokale.pl" className="hover:text-blue-400 transition-colors duration-300 cursor-pointer">✉️ halina.bolgudarna@lokale.pl</a></li>
+                <li>📍 Kalisz, ul. Dobrzecka 95</li>
+                <li>🕒 Pon-Pt: 8:00-16:00</li>
               </ul>
             </div>
           </div>
           <div className="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
+
             <p>&copy; 2025 KTSP. Wszystkie prawa zastrzeżone.</p>
           </div>
         </div>
