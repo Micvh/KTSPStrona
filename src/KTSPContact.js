@@ -183,7 +183,7 @@ export default function KTSPContact() {
               <p className="text-blue-100 mb-6 text-lg">
                 Potrzebujesz natychmiastowej pomocy? Zadzwoń do nas o każdej porze.
               </p>
-              <a href="tel:+48502187414" className="text-3xl font-bold hover:text-blue-200 transition-colors duration-300 cursor-pointer">+48 502 187 414</a>
+              <div className="text-3xl font-bold">+48 502 187 414</div>
             </div>
 
             {/* Map Section */}
@@ -230,11 +230,11 @@ export default function KTSPContact() {
                 <li>• Pożyczki (współpraca z Notus)</li>
               </ul>
             </div>
-                        <div>
+            <div>
               <h4 className="text-lg font-semibold mb-4">Kontakt nieruchomości</h4>
               <ul className="space-y-2 text-slate-300">
-                <li><a href="tel:+48502187414" className="hover:text-blue-400 transition-colors duration-300 cursor-pointer">📞 +48 502 187 414</a></li>
-                <li><a href="mailto:michal.czarnek@lokale.pl" className="hover:text-blue-400 transition-colors duration-300 cursor-pointer">✉️ michal.czarnek@lokale.pl</a></li>
+                <li>📞 +48 502 187 414</li>
+                <li>✉️ michal.czarnek@lokale.pl</li>
                 <li>📍 Kalisz, ul. Dobrzecka 95</li>
                 <li>🕒 Pon-Pt: 8:00-16:00</li>
               </ul>
@@ -242,15 +242,14 @@ export default function KTSPContact() {
             <div>
               <h4 className="text-lg font-semibold mb-4">Kontakt pożyczki</h4>
               <ul className="space-y-2 text-slate-300">
-                <li><a href="tel:+48502187414" className="hover:text-blue-400 transition-colors duration-300 cursor-pointer">📞 +48 502 187 414</a></li>
-                <li><a href="mailto:halina.bolgudarna@lokale.pl" className="hover:text-blue-400 transition-colors duration-300 cursor-pointer">✉️ halina.bolgudarna@lokale.pl</a></li>
-                <li>📍 Kalisz, ul. Dobrzecka 95</li>
-                <li>🕒 Pon-Pt: 8:00-16:00</li>
+             <li>📞 +48 502 187 414</li>
+                 <li>✉️ halina.bolgudarna@lokale.pl</li>
+                 <li>📍 Kalisz, ul. Dobrzecka 95</li>
+                 <li>🕒 Pon-Pt: 8:00-16:00</li>
               </ul>
             </div>
           </div>
           <div className="border-t border-slate-700 mt-8 pt-8 text-center text-slate-400">
-
             <p>&copy; 2025 KTSP. Wszystkie prawa zastrzeżone.</p>
           </div>
         </div>

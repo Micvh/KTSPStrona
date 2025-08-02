@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import zdjeciemainJPG from "./zdjeciemain.jpg";
 import zdjeciemainPNG from "./zdjeciemain.png";
@@ -248,9 +248,13 @@ export default function KTSPOffers() {
   const [sortBy, setSortBy] = useState("Cena (od najniższej)");
   const [currentSlides, setCurrentSlides] = useState({});
   const [showAdvancedFilters, setShowAdvancedFilters] = useState(false);
+  
+  // Touch/swipe state
+  const [touchStart, setTouchStart] = useState({});
+  const [touchEnd, setTouchEnd] = useState({});
 
   // Initialize current slides for all properties
-  React.useEffect(() => {
+  useEffect(() => {
     const initialSlides = {};
     properties.forEach(property => {
       initialSlides[property.id] = 0;
@@ -278,6 +282,45 @@ export default function KTSPOffers() {
         [propertyId]: (prev[propertyId] - 1 + maxSlides) % maxSlides
       };
     });
+  };
+
+  // Touch handlers for swipe functionality
+  const onTouchStart = (e, propertyId) => {
+    console.log('Touch start:', propertyId, e.targetTouches[0].clientX);
+    setTouchStart(prev => ({
+      ...prev,
+      [propertyId]: e.targetTouches[0].clientX
+    }));
+  };
+
+  const onTouchMove = (e, propertyId) => {
+    console.log('Touch move:', propertyId, e.targetTouches[0].clientX);
+    setTouchEnd(prev => ({
+      ...prev,
+      [propertyId]: e.targetTouches[0].clientX
+    }));
+  };
+
+  const onTouchEnd = (propertyId) => {
+    const startX = touchStart[propertyId];
+    const endX = touchEnd[propertyId];
+    
+    if (!startX || !endX) return;
+    
+    const distance = startX - endX;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe) {
+      nextSlide(propertyId);
+    }
+    if (isRightSwipe) {
+      prevSlide(propertyId);
+    }
+
+    // Reset touch positions
+    setTouchStart(prev => ({ ...prev, [propertyId]: null }));
+    setTouchEnd(prev => ({ ...prev, [propertyId]: null }));
   };
 
   console.log('=== DEBUG INFO ===');
@@ -769,9 +812,14 @@ export default function KTSPOffers() {
         {/* Properties Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {sortedProperties.map((property, index) => (
-            <div key={`${property.id}-${index}`} className="bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group">
+            <div key={`${property.id}-${index}`} className="bg-white/80 backdrop-blur-sm rounded-2xl overflow-hidden border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 group flex flex-col h-full">
               {/* Property Image Slider */}
-              <div className="relative h-64 overflow-hidden">
+              <div 
+                className="relative h-64 overflow-hidden flex-shrink-0"
+                onTouchStart={(e) => onTouchStart(e, property.id)}
+                onTouchMove={(e) => onTouchMove(e, property.id)}
+                onTouchEnd={() => onTouchEnd(property.id)}
+              >
                 <div 
                   className="flex transition-transform duration-700 ease-in-out"
                   style={{ transform: `translateX(-${currentSlides[property.id] * 100}%)` }}
@@ -837,21 +885,21 @@ export default function KTSPOffers() {
               </div>
 
               {/* Property Info */}
-              <div className="p-6">
-                <h3 className="text-xl font-semibold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors duration-300">
+              <div className="p-6 flex flex-col flex-grow">
+                <h3 className="text-xl font-semibold text-slate-800 mb-2 group-hover:text-blue-600 transition-colors duration-300 line-clamp-2">
                   {property.title}
                 </h3>
                 <div className="flex items-center gap-2 text-slate-600 mb-4">
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-4 h-4 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                   </svg>
-                  <span>{property.location}</span>
+                  <span className="truncate">{property.location}</span>
                 </div>
 
                 {/* Property Details */}
                 <div className="grid grid-cols-2 gap-4 mb-4">
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center">
+                    <div className="w-8 h-8 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <span className="text-blue-600 font-semibold">🏠</span>
                     </div>
                     <div>
@@ -860,7 +908,7 @@ export default function KTSPOffers() {
                     </div>
                   </div>
                   <div className="flex items-center gap-2">
-                    <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center">
+                    <div className="w-8 h-8 bg-green-100 rounded-lg flex items-center justify-center flex-shrink-0">
                       <span className="text-green-600 font-semibold">🛏️</span>
                     </div>
                     <div>
@@ -870,8 +918,8 @@ export default function KTSPOffers() {
                   </div>
                 </div>
 
-                {/* Price and Action */}
-                <div className="flex justify-between items-center pt-4 border-t border-slate-100">
+                {/* Price and Action - This will always be at the bottom */}
+                <div className="flex justify-between items-center pt-4 border-t border-slate-100 mt-auto">
                   <div>
                     <div className="text-2xl font-bold text-slate-800">{property.price}</div>
                     <div className="text-sm text-slate-600">
@@ -880,7 +928,7 @@ export default function KTSPOffers() {
                   </div>
                   <Link
                     to={`/oferty/${property.id}`}
-                    className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5"
+                    className="bg-gradient-to-r from-blue-600 to-indigo-600 text-white px-6 py-2 rounded-xl font-semibold hover:from-blue-700 hover:to-indigo-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 flex-shrink-0"
                   >
                     Zobacz
                   </Link>

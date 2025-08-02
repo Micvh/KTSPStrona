@@ -271,9 +271,9 @@ export default function KTSPHome() {
                    </div>
                    <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-8 border border-white/50 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-2 hover:bg-white/90 group">
                      <div className="text-center text-4xl mb-4 group-hover:scale-110 transition-transform duration-300">📊</div>
-                     <h3 className="text-lg md:text-xl font-semibold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">Doradztwo Inwestycyjne</h3>
+                     <h3 className="text-lg md:text-xl font-semibold text-slate-800 mb-3 group-hover:text-blue-600 transition-colors duration-300">Zarządzanie Nieruchomościami</h3>
                      <p className="text-sm md:text-base text-slate-600 group-hover:text-slate-700 transition-colors duration-300">
-                       Wsparcie w zakupie nieruchomości inwestycyjnych i zarządzaniu majątkiem.
+                  Profesjonalne zarządzanie nieruchomościami – gwarancja bezpieczeństwa i efektywności
                      </p>
                    </div>
                  </div>
@@ -365,50 +365,56 @@ export default function KTSPHome() {
         </div>
 
                  {/* Contact Section */}
-                   <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-6 lg:p-8 xl:p-10 border border-white/50 shadow-lg mt-8 md:mt-10 lg:mt-12 xl:mt-16 pb-10 md:pb-12 lg:pb-14 xl:pb-16" >
-           <div className="text-center">
-             <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-4">Skontaktuj się z nami</h2>
-             <p className="text-slate-600 mb-6">
-               Jesteśmy tutaj, aby pomóc Ci znaleźć wymarzone miejsce
-             </p>
-             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="font-semibold text-slate-800 mb-1">Telefon</div>
-                  <a href="tel:+48502187414" className="text-slate-600 hover:text-blue-600 transition-colors duration-300 cursor-pointer">+48 502 187 414</a>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
-                    <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="font-semibold text-slate-800 mb-1">Email</div>
-                  <a href="mailto:michal.czarnek@lokale.pl" className="text-slate-600 hover:text-blue-600 transition-colors duration-300 cursor-pointer">michal.czarnek@lokale.pl</a>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
-                  <svg className="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
-                  </svg>
-                </div>
-                <div>
-                  <div className="font-semibold text-slate-800 mb-1">Adres</div>
-                  <div className="text-slate-600">ul. Dobrzecka 95, Kalisz</div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                 <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-8 lg:p-10 border border-white/50 shadow-lg mt-8 md:mt-12 lg:mt-16">
+                   <div className="text-center">
+                     <h2 className="text-2xl md:text-3xl font-bold text-slate-800 mb-4">Skontaktuj się z nami</h2>
+                     <p className="text-slate-600 mb-8">
+                       Jesteśmy tutaj, aby pomóc Ci znaleźć wymarzone miejsce
+                     </p>
+                     
+                                           <div className="space-y-6 md:grid md:grid-cols-3 md:gap-8 md:items-start">
+                        {/* Telefon */}
+                        <div className="flex flex-col items-center gap-4 md:flex-row md:items-start md:justify-start md:ml-12 lg:ml-24 h-full md:mt-6">
+                          <div className="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg className="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z" />
+                            </svg>
+                          </div>
+                          <div className="text-center md:text-left">
+                            <div className="font-semibold text-slate-800 mb-1">Telefon</div>
+                            <a href="tel:+48502187414" className="text-slate-600 hover:text-blue-600 transition-colors duration-300 cursor-pointer">+48 502 187 414</a>
+                          </div>
+                        </div>
+                        
+                        {/* Email */}
+                        <div className="flex flex-col items-center gap-4 md:flex-row md:items-start md:justify-start md:ml-12 lg:ml-24 h-full">
+                          <div className="w-12 h-12 bg-green-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
+                              <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z" />
+                              <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z" />
+                            </svg>
+                          </div>
+                          <div className="text-center md:text-left">
+                            <div className="font-semibold text-slate-800 mb-1">Email</div>
+                            <a href="mailto:michal.czarnek@lokale.pl" className="text-slate-600 hover:text-blue-600 transition-colors duration-300 cursor-pointer">michal.czarnek@lokale.pl</a>
+                          </div>
+                        </div>
+                        
+                        {/* Adres */}
+                        <div className="flex flex-col items-center gap-4 md:flex-row md:items-start md:justify-start md:ml-12 lg:ml-24 h-full">
+                          <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center flex-shrink-0">
+                            <svg className="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
+                              <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                            </svg>
+                          </div>
+                          <div className="text-center md:text-left">
+                            <div className="font-semibold text-slate-800 mb-1">Adres</div>
+                            <div className="text-slate-600">ul. Dobrzecka 95, Kalisz</div>
+                          </div>
+                        </div>
+                      </div>
+                   </div>
+                 </div>
       </div>
 
       {/* Footer */}

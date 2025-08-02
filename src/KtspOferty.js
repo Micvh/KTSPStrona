@@ -22,10 +22,29 @@ const features = [
 
 export default function KtspOferty() {
   const [current, setCurrent] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
+  const [touchStart, setTouchStart] = useState(null);
+  const [touchEnd, setTouchEnd] = useState(null);
 
   const prevImage = () => setCurrent((prev) => (prev === 0 ? images.length - 1 : prev - 1));
   const nextImage = () => setCurrent((prev) => (prev === images.length - 1 ? 0 : prev + 1));
+
+  const onTouchStart = (e) => {
+    setTouchStart(e.targetTouches[0].clientX);
+    setTouchEnd(null);
+  };
+
+  const onTouchMove = (e) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  const onTouchEnd = () => {
+    if (touchStart === null || touchEnd === null) return;
+    const distance = touchStart - touchEnd;
+    if (distance > 50) nextImage();
+    if (distance < -50) prevImage();
+    setTouchStart(null);
+    setTouchEnd(null);
+  };
 
   return (
     <div className="w-screen min-h-screen bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-100">
@@ -88,31 +107,44 @@ export default function KtspOferty() {
           {/* Left Column */}
           <div className="flex-1 space-y-8">
             {/* Hero Section */}
-            <div className="space-y-4">
-              <div className="flex items-center gap-3 mb-2">
-                <div className="w-2 h-8 bg-gradient-to-b from-blue-500 to-indigo-600 rounded-full"></div>
-                <h1 className="text-4xl font-bold text-slate-800">
+            <div className="space-y-2 md:space-y-4">
+              <div className="flex items-center gap-2 md:gap-3 mb-1 md:mb-2">
+                <div className="w-1 h-4 md:w-2 md:h-8 bg-gradient-to-b from-blue-500 to-indigo-600 rounded-full"></div>
+                <h1 className="text-2xl md:text-4xl font-bold text-slate-800">
                   Przykładowa nieruchomość
                 </h1>
               </div>
-              <div className="flex items-center gap-2 text-slate-600">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+              <div className="flex items-center gap-1 md:gap-2 text-slate-600 text-sm md:text-lg">
+                <svg className="w-4 h-4 md:w-5 md:h-5" fill="currentColor" viewBox="0 0 20 20">
                   <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
                 </svg>
-                <span className="text-lg">Kalisz, Centrum</span>
+                <span>Kalisz, Centrum</span>
               </div>
             </div>
 
             {/* Image Gallery */}
             <div className="relative group">
-              <div className="relative w-full h-[32rem] rounded-2xl overflow-hidden shadow-2xl">
-                <img
-                  src={images[current].src}
-                  alt={images[current].alt}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                />
+              <div
+                className="relative w-full h-52 md:h-[32rem] rounded-2xl overflow-hidden shadow-2xl"
+                onTouchStart={onTouchStart}
+                onTouchMove={onTouchMove}
+                onTouchEnd={onTouchEnd}
+              >
+                <div
+                  className="flex transition-transform duration-700 ease-in-out h-52 md:h-[32rem]"
+                  style={{ transform: `translateX(-${current * 100}%)` }}
+                >
+                  {images.map((img, idx) => (
+                    <img
+                      key={img.src}
+                      src={img.src}
+                      alt={img.alt}
+                      className="w-full h-52 md:h-[32rem] object-cover flex-shrink-0"
+                      style={{ minWidth: "100%" }}
+                    />
+                  ))}
+                </div>
                 <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                
                 {/* Navigation Buttons */}
                 <button
                   onClick={prevImage}
@@ -130,7 +162,6 @@ export default function KtspOferty() {
                     <path d="M9 5l7 7-7 7" stroke="#1e293b" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </button>
-
                 {/* Image Counter */}
                 <div className="absolute bottom-4 right-4 bg-black/50 backdrop-blur-sm text-white px-3 py-1 rounded-full text-sm">
                   {current + 1} / {images.length}
@@ -139,27 +170,24 @@ export default function KtspOferty() {
             </div>
 
             {/* Features Grid */}
-            <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
               {features.map((feature, index) => (
-                <div key={index} className="bg-white/70 backdrop-blur-sm rounded-xl p-4 border border-white/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className="text-2xl mb-2">{feature.icon}</div>
-                  <div className="text-sm text-slate-600">{feature.label}</div>
-                  <div className="font-semibold text-slate-800">{feature.value}</div>
+                <div key={index} className="bg-white/70 backdrop-blur-sm rounded-xl p-2 md:p-4 border border-white/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <div className="text-xl md:text-2xl mb-1 md:mb-2">{feature.icon}</div>
+                  <div className="text-xs md:text-sm text-slate-600">{feature.label}</div>
+                  <div className="font-semibold text-slate-800 text-sm md:text-base">{feature.value}</div>
                 </div>
               ))}
             </div>
 
             {/* Description */}
-            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-6 border border-white/50">
-              <h2 className="text-xl font-semibold text-slate-800 mb-4 flex items-center gap-2">
-                <div className="w-1 h-6 bg-blue-500 rounded-full"></div>
+            <div className="bg-white/70 backdrop-blur-sm rounded-2xl p-3 md:p-6 border border-white/50">
+              <h2 className="text-lg md:text-xl font-semibold text-slate-800 mb-2 md:mb-4 flex items-center gap-1 md:gap-2">
+                <div className="w-1 h-4 md:h-6 bg-blue-500 rounded-full"></div>
                 OPIS NIERUCHOMOŚCI
               </h2>
-              <p className="text-slate-700 leading-relaxed">
-                Eleganckie mieszkanie w prestiżowej lokalizacji w centrum Kalisza. Nieruchomość oferuje przestronne wnętrza, 
-                wysokiej jakości wykończenie oraz doskonałą lokalizację w pobliżu wszystkich udogodnień miejskich. 
-                Mieszkanie składa się z 3 sypialni, 2 łazienek, przestronnego salonu oraz w pełni wyposażonej kuchni. 
-                Dodatkowo dostępny jest balkon o powierzchni 15 m² z widokiem na park miejski.
+              <p className="text-slate-700 leading-relaxed text-xs md:text-base">
+                Eleganckie mieszkanie w prestiżowej lokalizacji w centrum Kalisza. Nieruchomość oferuje przestronne wnętrza, wysokiej jakości wykończenie oraz doskonałą lokalizację w pobliżu wszystkich udogodnień miejskich. Mieszkanie składa się z 3 sypialni, 2 łazienek, przestronnego salonu oraz w pełni wyposażonej kuchni. Dodatkowo dostępny jest balkon o powierzchni 15 m² z widokiem na park miejski.
               </p>
             </div>
 

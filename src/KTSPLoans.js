@@ -193,8 +193,7 @@ export default function KTSPLoans() {
             }}
           >
             <h1 className="text-4xl md:text-6xl font-bold text-slate-800 mb-6 animate-fade-in">
-              Pożyczki
-              <span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent "> Notus</span>
+              Pożyczki<span className="bg-gradient-to-r from-blue-600 to-indigo-600 bg-clip-text text-transparent"> Notus</span>
             </h1>
                          <p className="text-lg md:text-2xl text-slate-600 max-w-3xl mx-auto mb-8 animate-slide-up">
                Rozpoczynamy współpracę z firmą Notus, aby oferować naszym klientom nowe możliwości finansowe. 
@@ -282,15 +281,15 @@ export default function KTSPLoans() {
         </div>
 
         {/* Person Responsible Section */}
-        <div className="px-4 md:px-6 lg:px-8 xl:px-32 2xl:px-48 mb-16">
-          <div className={`bg-white/80 backdrop-blur-sm rounded-2xl p-12 border border-white/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1400ms' }}>
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="px-4 md:px-6 lg:px-8 xl:px-32 2xl:px-48 mb-8 md:mb-16">
+          <div className={`bg-white/80 backdrop-blur-sm rounded-2xl p-6 md:p-12 border border-white/50 shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 group ${isVisible ? 'translate-y-0 opacity-100' : 'translate-y-10 opacity-0'}`} style={{ transitionDelay: '1400ms' }}>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-12 items-center">
               <div>
-                <h2 className="text-3xl md:text-4xl font-bold text-slate-800 mb-6 group-hover:text-blue-600 transition-colors duration-300">
+                <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-slate-800 mb-4 md:mb-6 group-hover:text-blue-600 transition-colors duration-300">
                   Twój doradca finansowy
                 </h2>
-                <div className="mb-6">
-                  <h3 className="text-2xl font-semibold text-slate-800 mb-2">Halina Bolgudarna</h3>
+                <div className="mb-4 md:mb-6">
+                  <h3 className="text-xl md:text-2xl font-semibold text-slate-800 mb-2">Halina Bolgudarna</h3>
                   <p 
                     className="text-blue-600 font-medium cursor-pointer hover:text-blue-700 transition-colors duration-300"
                     onClick={openContactModal}
@@ -298,35 +297,35 @@ export default function KTSPLoans() {
                     Specjalista ds. pożyczek
                   </p>
                 </div>
-                                 <p className="text-slate-600 mb-6 leading-relaxed">
+                                 <p className="text-slate-600 mb-4 md:mb-6 leading-relaxed text-sm md:text-base">
                    Z entuzjazmem rozpoczynam nową przygodę w branży finansowej jako doradca ds. pożyczek. 
                    Choć jestem nowa w tej dziedzinie, mam solidne podstawy w obsłudze klienta i jestem 
                    gotowa pomóc w znalezieniu najlepszych rozwiązań finansowych. Współpracuję z firmą Notus, 
                    aby zapewnić profesjonalną obsługę i atrakcyjne warunki.
                  </p>
-                <div className="space-y-3">
+                <div className="space-y-2 md:space-y-3">
                   <div className="flex items-center">
-                    <span className="text-blue-500 mr-3">🎓</span>
-                    <span className="text-slate-600">Certyfikowany doradca finansowy</span>
+                    <span className="text-blue-500 mr-2 md:mr-3 text-sm md:text-base">🎓</span>
+                    <span className="text-slate-600 text-sm md:text-base">Doradca finansowy</span>
                   </div>
                                      <div className="flex items-center">
-                     <span className="text-blue-500 mr-3">💼</span>
-                     <span className="text-slate-600">Nowa specjalizacja w pożyczkach</span>
+                     <span className="text-blue-500 mr-2 md:mr-3 text-sm md:text-base">💼</span>
+                     <span className="text-slate-600 text-sm md:text-base">Nowa specjalizacja w pożyczkach</span>
                    </div>
                    <div className="flex items-center">
-                     <span className="text-blue-500 mr-3">🤝</span>
-                     <span className="text-slate-600">Pierwsi zadowoleni klienci</span>
+                     <span className="text-blue-500 mr-2 md:mr-3 text-sm md:text-base">🤝</span>
+                     <span className="text-slate-600 text-sm md:text-base">Pierwsi zadowoleni klienci</span>
                    </div>
                 </div>
               </div>
               <div className="text-center">
-                <div className="w-64 h-64 mx-auto bg-gradient-to-br from-blue-400 to-indigo-600 rounded-full flex items-center justify-center text-white text-8xl mb-6 group-hover:scale-105 transition-transform duration-300">
+                <div className="w-32 h-32 md:w-48 md:h-48 lg:w-64 lg:h-64 mx-auto bg-gradient-to-br from-blue-400 to-indigo-600 rounded-full flex items-center justify-center text-white text-4xl md:text-6xl lg:text-8xl mb-4 md:mb-6 group-hover:scale-105 transition-transform duration-300">
                   👩‍💼
                 </div>
-                <div className="space-y-4">
-                  <div className="bg-blue-50 rounded-xl p-4">
-                    <h4 className="font-semibold text-slate-800 mb-2">Dedykowany kontakt</h4>
-                    <p className="text-slate-600 text-sm">
+                <div className="space-y-3 md:space-y-4">
+                  <div className="bg-blue-50 rounded-xl p-3 md:p-4">
+                    <h4 className="font-semibold text-slate-800 mb-2 text-sm md:text-base">Dedykowany kontakt</h4>
+                    <p className="text-slate-600 text-xs md:text-sm">
                     Halina Bolgudarna jest Twoim osobistym doradcą ds. pożyczek. 
                       Skontaktuj się bezpośrednio, aby omówić swoje potrzeby finansowe.
                     </p>
@@ -445,7 +444,7 @@ export default function KTSPLoans() {
                 </div>
                 <div>
                   <div className="font-semibold text-slate-800">Telefon</div>
-                  <div className="text-slate-600">+48 502 187 414</div>
+                  <a href="tel:+48502187414" className="text-slate-600 hover:text-blue-600 transition-colors duration-300 cursor-pointer">+48 502 187 414</a>
                 </div>
               </div>
               
@@ -458,7 +457,7 @@ export default function KTSPLoans() {
                 </div>
                 <div>
                   <div className="font-semibold text-slate-800">Email</div>
-                  <div className="text-slate-600">halina.bolgudarna@lokale.pl</div>
+                  <a href="mailto:halina.bolgudarna@lokale.pl" className="text-slate-600 hover:text-blue-600 transition-colors duration-300 cursor-pointer">halina.bolgudarna@lokale.pl</a>
                 </div>
               </div>
               
