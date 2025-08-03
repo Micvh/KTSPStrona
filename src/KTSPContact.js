@@ -235,7 +235,7 @@ export default function KTSPContact() {
               <ul className="space-y-2 text-slate-300">
                 <li>📞 +48 502 187 414</li>
                 <li>✉️ michal.czarnek@lokale.pl</li>
-                <li>📍 Kalisz, ul. Dobrzecka 95</li>
+                <li><a href="https://www.google.com/maps/search/Kalisz+ul.+Dobrzecka+95" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors duration-300 cursor-pointer">📍 Kalisz, ul. Dobrzecka 95</a></li>
                 <li>🕒 Pon-Pt: 8:00-16:00</li>
               </ul>
             </div>
@@ -244,7 +244,7 @@ export default function KTSPContact() {
               <ul className="space-y-2 text-slate-300">
              <li>📞 +48 502 187 414</li>
                  <li>✉️ halina.bolgudarna@lokale.pl</li>
-                 <li>📍 Kalisz, ul. Dobrzecka 95</li>
+                 <li><a href="https://www.google.com/maps/search/Kalisz+ul.+Dobrzecka+95" target="_blank" rel="noopener noreferrer" className="hover:text-blue-400 transition-colors duration-300 cursor-pointer">📍 Kalisz, ul. Dobrzecka 95</a></li>
                  <li>🕒 Pon-Pt: 8:00-16:00</li>
               </ul>
             </div>
